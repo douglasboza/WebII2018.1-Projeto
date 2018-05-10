@@ -5,64 +5,105 @@
  */
 package ManagedBean;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import ufrn.web2.projetoun2.dominio.Pessoa;
+
 
 /**
  *
  * @author douglasboza
  */
+
+
+@Named(value = "usuarioBean")
+@RequestScoped
+
+
 public class usuarioBean {
     
-}
 
-package employee.presentation;
+//	@Inject usuarioDAO dao;
 
-import java.util.ArrayList;
-import java.util.List;
+    
+    private Pessoa pessoa = new Pessoa();
+    private String nome;
+    private String telefone;
+    private String cpf;
+    private String email;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+    public String getNome() {
+        return nome;
+    }
 
-import employee.Employee;
-import employee.data.EmployeeDAO;
+    public void setNome(String nome) {
+        this.nome = nome;
+        pessoa.setNome(nome);
+    }
 
-@Named(value = "employeeManagedBean")
-@RequestScoped
-public class EmployeeMB {
-	@Inject EmployeeDAO dao;
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+        pessoa.setTelefone(telefone);
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+        pessoa.setCpf(cpf);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+        pessoa.setEmail(email);
+    }
 	
-	//Auxiliary fields for JSF
-	private List<Employee> employeeList = new ArrayList<>();
-	private Employee employee = new Employee();
-	
+    
+            
         
         
-	public List<Employee> getEmployeeList() {
-                employeeList = dao.findEmployees();
-		return employeeList;
-	}
+        
+        
+//        
+//       public List<Employee> getEmployeeList() {
+//                employeeList = dao.findEmployees();
+//		return employeeList;
+//	}
+//
+//	public void setEmployeeList(List<Employee> employeeList) {
+//		this.employeeList = employeeList;
+//	}
+//
+//	public Employee getEmployee() {
+//		return employee;
+//	}
+//
+//	public void setEmployee(Employee employee) {
+//		this.employee = employee;
+//	}
+//
+//	public String addNewEmployee() {
+//		dao.addNew(employee);
+//		employeeList = dao.findEmployees();
+//		return "employeelist";
+//	}
 
-	public void setEmployeeList(List<Employee> employeeList) {
-		this.employeeList = employeeList;
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-
-	public String addNewEmployee() {
-		dao.addNew(employee);
-		employeeList = dao.findEmployees();
-		return "employeelist";
-	}
-	
+    
+    
+    
 }
