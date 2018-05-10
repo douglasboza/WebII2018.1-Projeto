@@ -12,6 +12,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import ufrn.web2.projetoun2.data.pessoaDAO;
 import ufrn.web2.projetoun2.dominio.Pessoa;
 
 
@@ -30,6 +31,7 @@ public class usuarioBean {
 
 //	@Inject usuarioDAO dao;
 
+    pessoaDAO dao = new pessoaDAO();
     
     private Pessoa pessoa = new Pessoa();
     private String nome;
@@ -72,8 +74,13 @@ public class usuarioBean {
         this.email = email;
         pessoa.setEmail(email);
     }
-	
-    
+//	
+//    public String addNewEmployee() {
+//            dao.addNew(this.pessoa);
+//            System.out.print( dao.findEmployees() );
+//            return "employeelist";
+//    }
+
             
         
         
