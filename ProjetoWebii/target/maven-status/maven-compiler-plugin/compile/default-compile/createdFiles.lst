@@ -1,11 +1,13 @@
-projeto/dominio/Consulta.class
-projeto/presentation/EmployeeMB.class
 projeto/dominio/Plano.class
 projeto/dominio/Paciente.class
 projeto/data/EmployeeDAO.class
-projeto/data/pessoaDAO.class
 projeto/dominio/Endereco.class
-projeto/dominio/Employee.class
 projeto/dominio/Medico.class
 projeto/presentation/pessoaBean.class
 projeto/dominio/Pessoa.class
+projeto/presentation/medicoBean.class
+projeto/dominio/Consulta.class
+projeto/presentation/EmployeeMB.class
+projeto/data/pessoaDAO.class
+projeto/dominio/Employee.class
+projeto/data/medicoDAO.class

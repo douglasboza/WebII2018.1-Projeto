@@ -30,12 +30,8 @@ public class Pessoa {
     @SequenceGenerator(name="SEQ_PESSOA", sequenceName="seq_pessoa", allocationSize =1)
     private Long id;
  
-    public int getId_pessoa() {
-        return id_pessoa;
-    }
-
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+    public Long getId_pessoa() {
+        return this.id;
     }
 
     public String getNome() {
