@@ -5,6 +5,7 @@
  */
 package projeto.dominio;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,12 @@ import javax.persistence.SequenceGenerator;
  *
  * @author douglasboza
  */
-@Entity
-@NamedQuery(name = "findAllPessoas", query = "SELECT e FROM Pessoa e")
-@Inheritance(strategy = InheritanceType.JOINED)
 
-public class Pessoa {
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@NamedQuery(name = "findAllPessoas", query = "SELECT e FROM Pessoa e")
+
+public class Pessoa implements Serializable{
     String nome;
     String telefone;
     String cpf;
@@ -36,7 +38,6 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_pessoa;
-
 
     public String getNome() {
         return nome;

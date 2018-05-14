@@ -26,25 +26,25 @@ import javax.persistence.SequenceGenerator;
  */
 //select * from medico as m inner join pessoa on pessoa.id = m.pessoaid;
 @Entity
+@PrimaryKeyJoinColumn(name="id_pessoa")
 @NamedQuery(name = "findAllMedicos", query = "select e from Medico e")
+
 
 public class Medico extends Pessoa{
     
     int registroProfi;
-//    long pessoaId;
     ArrayList<String> areaAtuacao;
     ArrayList<Endereco> enderecosAtendi;
     ArrayList<Plano> planosRecebibos;
     ArrayList<Consulta> listaConsultas;
     
-    @OneToOne
-    @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_MEDICO")
+//    @Id
+//    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_MEDICO")
 //    @SequenceGenerator(name="SEQ_MEDICO", sequenceName="seq_medico", allocationSize =1)
     
-    @PrimaryKeyJoinColumn(name="id_pessoa")
+//    @PrimaryKeyJoinColumn(name="id_pessoa")
     
-    private Long id;
+//    private Long id;
  
 //    public long getPessoaId() {
 //        return pessoaId;

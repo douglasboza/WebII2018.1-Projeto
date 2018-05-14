@@ -43,7 +43,7 @@ public class medicoBean {
 
     public void setNome(String nome) {
         this.nome = nome;
-        pessoa.setNome(nome);
+        medico.setNome(nome);
     }
     
       public int getRegistroProfi() {
@@ -61,7 +61,7 @@ public class medicoBean {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-        pessoa.setCpf(cpf);
+        medico.setCpf(cpf);
     }
 
     public String getEmail() {
@@ -70,7 +70,7 @@ public class medicoBean {
 
     public void setEmail(String email) {
         this.email = email;
-        pessoa.setEmail(email);
+        medico.setEmail(email);
     }
 
     public String getTelefone() {
@@ -79,13 +79,11 @@ public class medicoBean {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-        pessoa.setTelefone(telefone);
+        medico.setTelefone(telefone);
     }
     
     	
     public void addMedico() {
-//        pessoa = pessoadao.addNew(pessoa);
-//        medico.setPessoaId( pessoa.getId_pessoa() );
         medicodao.addNew(medico);
         
     }

@@ -44,8 +44,9 @@ public class pessoaDAO {
 	}
 
 	public List<Pessoa> findPessoas() {
-		TypedQuery<Pessoa> query = entityManager.createNamedQuery("findAllPessoas", Pessoa.class);
-		return query.getResultList();
+            return null;
+//		TypedQuery<Pessoa> query = entityManager.createNamedQuery("findAllPessoas", Pessoa.class);
+//		return query.getResultList();
 	}
 
 }
