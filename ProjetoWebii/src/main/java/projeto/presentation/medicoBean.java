@@ -31,6 +31,9 @@ public class medicoBean {
     Medico medico = new Medico();
     
     private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
     private int registroProfi;
     private List<Medico> medicoList = new ArrayList<>();
 
@@ -51,11 +54,38 @@ public class medicoBean {
         medico.setRegistroProfi(registroProfi);
         this.registroProfi = registroProfi;
     }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+        pessoa.setCpf(cpf);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+        pessoa.setEmail(email);
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+        pessoa.setTelefone(telefone);
+    }
     
     	
     public void addMedico() {
-        pessoa = pessoadao.addNew(pessoa);
-        medico.setPessoaId( pessoa.getId_pessoa() );
+//        pessoa = pessoadao.addNew(pessoa);
+//        medico.setPessoaId( pessoa.getId_pessoa() );
         medicodao.addNew(medico);
         
     }

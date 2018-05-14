@@ -26,7 +26,7 @@ import projeto.dominio.Pessoa;
 @Named
 @RequestScoped
 public class medicoDAO {
-	@PersistenceContext(unitName = "EmployeePU")
+	@PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 
 	@Resource
@@ -43,7 +43,10 @@ public class medicoDAO {
 		}
 		return medico;
 	}
-
+  
+      
+       
+        
 	public List<Medico> findMedicos() {
             TypedQuery<Medico> query = entityManager.createNamedQuery("findAllMedicos", Medico.class);
             return query.getResultList();

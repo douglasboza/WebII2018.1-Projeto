@@ -15,7 +15,7 @@ import projeto.dominio.Employee;
 @Named
 @RequestScoped
 public class EmployeeDAO {
-	@PersistenceContext(unitName = "EmployeePU")
+	@PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 
 	@Resource

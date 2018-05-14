@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 
@@ -18,21 +20,23 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 @NamedQuery(name = "findAllPessoas", query = "SELECT e FROM Pessoa e")
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public class Pessoa {
-    int id_pessoa;
     String nome;
     String telefone;
     String cpf;
     String email;
-    
+
+//    @Id
+//    @GeneratedValue(strategy=GenerationType.IDENTITY,generator="SEQ_PESSOA")
+//    @SequenceGenerator(name="SEQ_PESSOA", sequenceName="seq_pessoa", allocationSize =1)
+//    private Long id;
+//    private long id_pessoa;
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_PESSOA")
-    @SequenceGenerator(name="SEQ_PESSOA", sequenceName="seq_pessoa", allocationSize =1)
-    private Long id;
- 
-    public Long getId_pessoa() {
-        return this.id;
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_pessoa;
+
 
     public String getNome() {
         return nome;

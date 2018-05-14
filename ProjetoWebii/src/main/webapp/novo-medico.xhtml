@@ -13,19 +13,39 @@
         #{medicoBean}
         <div>TODO write content</div>
 
-        <h:form>
+        <h:form> 
             <h:panelGrid columns="2" >
-
-               <h:outputLabel value="Nome : "/>
+               <h:outputLabel value="Nome"/>
                <h:inputText value="#{medicoBean.nome}"/>          
             </h:panelGrid>
-             <br></br>
+             
+            <br></br>
             <h:panelGrid columns="2" >
-              
-               <h:outputLabel value="registroProfi : "/>
-               <h:inputText value="#{medicoBean.registroProfi}"/>
-            
+               <h:outputLabel value="Registro profissional"/>
+               <h:inputText value="#{medicoBean.registroProfi}"/>          
             </h:panelGrid>
+             
+            <br></br>
+             
+            <h:panelGrid columns="2" >
+               <h:outputLabel value="Telefone"/>
+               <h:inputText value="#{medicoBean.telefone}"/>
+            </h:panelGrid>
+            
+            <br></br>
+             
+            <h:panelGrid columns="2" >
+               <h:outputLabel value="Email"/>
+               <h:inputText value="#{medicoBean.email}"/>
+            </h:panelGrid>
+            
+            <br></br>
+            
+            <h:panelGrid columns="2" >
+               <h:outputLabel value="CPF"/>
+               <h:inputText value="#{medicoBean.cpf}"/>
+            </h:panelGrid>
+            
 
           <h:commandButton value="Add Medico" action="#{medicoBean.addMedico}"/>            
         </h:form>
