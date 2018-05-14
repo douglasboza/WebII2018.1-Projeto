@@ -45,26 +45,61 @@
                <h:outputLabel value="CPF"/>
                <h:inputText value="#{medicoBean.cpf}"/>
             </h:panelGrid>
+            <br></br>
             
+             <h:panelGrid columns="2" >
+               <h:outputLabel value="Área de atuação, separe com ;"/>
+               <h:inputText value="#{medicoBean.stringAreaAtuacao}"/>
+            </h:panelGrid>
 
           <h:commandButton value="Add Medico" action="#{medicoBean.addMedico}"/>            
         </h:form>
 
 
-<!--        <h:dataTable value="{medicoBean.medicoList}" var="emp" border="1">
-                <h:column>
+        <h:dataTable value="#{medicoBean.medicoList}" var="emp" border="1">
+            <h:column>
+                        <f:facet name="header"> 
+                            <h:outputText value="Nome" />
+                        </f:facet>
+                        <h:outputText value="#{emp.nome}" />
+            </h:column>
+            <h:column>
                         <f:facet name="header">
                                 <h:outputText value="registro pro" />
                         </f:facet>
-                        <h:outputText value="{emp.registroProfi}" />
-                </h:column>
-             <h:column>
-                        <f:facet name="header">
-                                <h:outputText value="id pessoa" />
+                        <h:outputText value="#{emp.registroProfi}" />
+            </h:column>
+            <h:column>
+                        <f:facet name="header"> 
+                            <h:outputText value="id pessoa" />
                         </f:facet>
-                        <h:outputText value="{emp.pessoaId}" />
-                </h:column>
-        </h:dataTable>-->
+                        <h:outputText value="#{emp.id_pessoa}" />
+            </h:column>
+            <h:column>
+                        <f:facet name="header"> 
+                            <h:outputText value="cpf" />
+                        </f:facet>
+                        <h:outputText value="#{emp.cpf}" />
+            </h:column>
+            <h:column>
+                        <f:facet name="header"> 
+                            <h:outputText value="Email" />
+                        </f:facet>
+                        <h:outputText value="#{emp.email}" />
+            </h:column>
+            <h:column>
+                        <f:facet name="header"> 
+                            <h:outputText value="Telefone" />
+                        </f:facet>
+                        <h:outputText value="#{emp.telefone}" />
+            </h:column>
+             <h:column>
+                        <f:facet name="header"> 
+                            <h:outputText value="Área de atuação" />
+                        </f:facet>
+                        <h:outputText value="#{emp.areaAtuacao}" />
+            </h:column>
+        </h:dataTable>
 
         
     </body>

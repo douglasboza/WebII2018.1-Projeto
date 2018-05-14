@@ -35,6 +35,13 @@ public class medicoBean {
     private String email;
     private String telefone;
     private int registroProfi;
+    private ArrayList<String> areaAtuacao  = new ArrayList<String>();
+    private String stringAreaAtuacao;
+
+//    private ArrayList<Endereco> enderecosAtendi;
+//    private ArrayList<Plano> planosRecebibos;
+//    private ArrayList<Consulta> listaConsultas;
+    
     private List<Medico> medicoList = new ArrayList<>();
 
     public String getNome() {
@@ -81,11 +88,32 @@ public class medicoBean {
         this.telefone = telefone;
         medico.setTelefone(telefone);
     }
+
+    public ArrayList<String> getAreaAtuacao() {
+        return areaAtuacao;
+    }
+
+    public void setAreaAtuacao(String itemAreaAtuacao) {
+        this.areaAtuacao.add(itemAreaAtuacao);
+        medico.setAreaAtuacao(areaAtuacao);
+    }
+
+    public String getStringAreaAtuacao() {
+        return stringAreaAtuacao;
+    }
+
+    public void setStringAreaAtuacao(String stringAreaAtuacao) {
+        this.stringAreaAtuacao = stringAreaAtuacao;
+        String[] array_araAtuacao = stringAreaAtuacao.split(";", -1);
+        for (int i = 0; i < array_araAtuacao.length; i++) {
+            this.setAreaAtuacao(array_araAtuacao[i]);
+        }
+    }
     
-    	
+
+ 
     public void addMedico() {
         medicodao.addNew(medico);
-        
     }
     
     public List<Medico> getMedicoList() {

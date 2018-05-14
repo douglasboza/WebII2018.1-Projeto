@@ -48,9 +48,8 @@ public class medicoDAO {
        
         
 	public List<Medico> findMedicos() {
-            return null;
-//            TypedQuery<Medico> query = entityManager.createNamedQuery("findAllMedicos", Medico.class);
-//            return query.getResultList();
+            TypedQuery<Medico> query = entityManager.createNamedQuery("findAllMedicos", Medico.class);
+            return query.getResultList();
 	}
 
 }
