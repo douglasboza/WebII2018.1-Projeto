@@ -11,7 +11,6 @@
     <body>
         
         #{medicoBean}
-        <div>TODO write content</div>
 
         <h:form> 
             <h:panelGrid columns="2" >
@@ -48,59 +47,66 @@
             <br></br>
             
              <h:panelGrid columns="2" >
-               <h:outputLabel value="Ãƒï¿½rea de atuaÃƒÂ§ÃƒÂ£o, separe com ;"/>
+               <h:outputLabel value="Área de atuação, separe com ;"/>
                <h:inputText value="#{medicoBean.stringAreaAtuacao}"/>
             </h:panelGrid>
 
           <h:commandButton value="Add Medico" action="#{medicoBean.addMedico}"/>            
         </h:form>
 
-
-        <h:dataTable value="#{medicoBean.medicoList}" var="emp" border="1">
-            <h:column>
-                        <f:facet name="header"> 
-                            <h:outputText value="Nome" />
-                        </f:facet>
-                        <h:outputText value="#{emp.nome}" />
-            </h:column>
-            <h:column>
-                        <f:facet name="header">
-                                <h:outputText value="registro pro" />
-                        </f:facet>
-                        <h:outputText value="#{emp.registroProfi}" />
-            </h:column>
-            <h:column>
-                        <f:facet name="header"> 
-                            <h:outputText value="id pessoa" />
-                        </f:facet>
-                        <h:outputText value="#{emp.id_pessoa}" />
-            </h:column>
-            <h:column>
-                        <f:facet name="header"> 
-                            <h:outputText value="cpf" />
-                        </f:facet>
-                        <h:outputText value="#{emp.cpf}" />
-            </h:column>
-            <h:column>
-                        <f:facet name="header"> 
-                            <h:outputText value="Email" />
-                        </f:facet>
-                        <h:outputText value="#{emp.email}" />
-            </h:column>
-            <h:column>
-                        <f:facet name="header"> 
-                            <h:outputText value="Telefone" />
-                        </f:facet>
-                        <h:outputText value="#{emp.telefone}" />
-            </h:column>
-             <h:column>
-                        <f:facet name="header"> 
-                            <h:outputText value="Ãƒï¿½rea de atuaÃƒÂ§ÃƒÂ£o" />
-                        </f:facet>
-                        <h:outputText value="#{emp.areaAtuacao}" />
-            </h:column>
-        </h:dataTable>
-
+        <h:form>
+            <h:dataTable value="#{medicoBean.medicoList}" var="emp" border="1">
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText value="#{emp.nome}" />
+                            
+                </h:column>
+                <h:column>
+                            <f:facet name="header">
+                                    <h:outputText value="registro pro" />
+                            </f:facet>
+                            <h:outputText value="#{emp.registroProfi}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="id pessoa" />
+                            </f:facet>
+                            <h:outputText value="#{emp.id_pessoa}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="cpf" />
+                            </f:facet>
+                            <h:outputText value="#{emp.cpf}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Email" />
+                            </f:facet>
+                            <h:outputText value="#{emp.email}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Telefone" />
+                            </f:facet>
+                            <h:outputText value="#{emp.telefone}" />
+                </h:column>
+                 <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Area de atuacao" />
+                            </f:facet>
+                            <h:outputText value="#{emp.areaAtuacao}" />
+                </h:column>
+                <h:column>
+                    <h:commandButton id="submit" 
+                    value="Remover" 
+                    action="#{medicoBean.excluirMedico(emp.id_pessoa)}"></h:commandButton>
+                </h:column>
+                
+            </h:dataTable>
+        </h:form>   
         
     </body>
 </html>

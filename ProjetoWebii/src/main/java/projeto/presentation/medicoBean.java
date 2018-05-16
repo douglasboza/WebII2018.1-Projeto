@@ -125,4 +125,11 @@ public class medicoBean {
          this.medicoList = medicodao.findMedicos();
     }
     
+    public void excluirMedico(int id_rem1){
+        Long id_rem = Long.valueOf(id_rem1);
+        System.out.println("igual aaaa " +id_rem);
+        medicodao.removerMedico(id_rem);
+    }
+        
+    
 }
