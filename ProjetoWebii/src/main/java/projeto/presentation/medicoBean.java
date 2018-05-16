@@ -37,6 +37,8 @@ public class medicoBean {
     private int registroProfi;
     private ArrayList<String> areaAtuacao  = new ArrayList<String>();
     private String stringAreaAtuacao;
+    
+    private ArrayList<String> planosRecebidos = new ArrayList<String>();
 
 //    private ArrayList<Endereco> enderecosAtendi;
 //    private ArrayList<Plano> planosRecebibos;
@@ -108,6 +110,14 @@ public class medicoBean {
         for (int i = 0; i < array_araAtuacao.length; i++) {
             this.setAreaAtuacao(array_araAtuacao[i]);
         }
+    }
+
+    public ArrayList<String> getPlanosRecebidos() {
+        return planosRecebidos;
+    }
+
+    public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
+        this.planosRecebidos = planosRecebidos;
     }
     
 

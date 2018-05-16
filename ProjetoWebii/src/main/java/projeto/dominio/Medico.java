@@ -35,7 +35,7 @@ public class Medico extends Pessoa{
     int registroProfi;
     ArrayList<String> areaAtuacao;
     ArrayList<Endereco> enderecosAtendi;
-    ArrayList<Plano> planosRecebibos;
+    ArrayList<String> planosRecebibos;
     ArrayList<Consulta> listaConsultas;
     
 //    @Id
@@ -78,11 +78,11 @@ public class Medico extends Pessoa{
         this.enderecosAtendi = enderecosAtendi;
     }
 
-    public ArrayList<Plano> getPlanosRecebibos() {
+    public ArrayList<String> getPlanosRecebibos() {
         return planosRecebibos;
     }
 
-    public void setPlanosRecebibos(ArrayList<Plano> planosRecebibos) {
+    public void setPlanosRecebibos(ArrayList<String> planosRecebibos) {
         this.planosRecebibos = planosRecebibos;
     }
 
@@ -93,6 +93,5 @@ public class Medico extends Pessoa{
     public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
         this.listaConsultas = listaConsultas;
     }
-    
     
 }
