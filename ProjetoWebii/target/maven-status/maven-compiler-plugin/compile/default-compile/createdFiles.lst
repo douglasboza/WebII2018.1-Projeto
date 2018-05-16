@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 projeto\dominio\Consulta.class
 projeto\dominio\Medico.class
 projeto\dominio\Employee.class
@@ -11,3 +12,20 @@ projeto\presentation\pessoaBean.class
 projeto\data\EmployeeDAO.class
 projeto\dominio\Paciente.class
 projeto\dominio\Plano.class
+=======
+projeto/dominio/Plano.class
+projeto/dominio/Paciente.class
+projeto/data/EmployeeDAO.class
+projeto/dominio/Endereco.class
+projeto/presentation/pacienteBean.class
+projeto/dominio/Medico.class
+projeto/presentation/pessoaBean.class
+projeto/dominio/Pessoa.class
+projeto/presentation/medicoBean.class
+projeto/dominio/Consulta.class
+projeto/presentation/EmployeeMB.class
+projeto/data/pessoaDAO.class
+projeto/dominio/Employee.class
+projeto/data/medicoDAO.class
+projeto/data/pacienteDAO.class
+>>>>>>> 145e4634da6d276f03860adcaf93f8b406bf609b

@@ -9,6 +9,9 @@ package projeto.dominio;
  *
  * @author douglasboza
  */
+
+// Rest in peperonis
+
 public class Plano {
     String empresa;
     String numCartao;

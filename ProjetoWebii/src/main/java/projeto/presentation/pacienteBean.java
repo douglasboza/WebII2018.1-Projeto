@@ -40,7 +40,7 @@ public class pacienteBean {
     private String telefone;
     
     Endereco enderecoPac = new Endereco();
-    ArrayList<Plano> planosPac = new ArrayList<Plano>();
+    ArrayList<String> planosPac = new ArrayList<String>();
     ArrayList<Consulta> consultasPac = new ArrayList<Consulta>();
     
     private List<Paciente> pacienteList = new ArrayList<>();
@@ -95,15 +95,6 @@ public class pacienteBean {
         paciente.setEnderecoPac(enderecoPac);
     }
 
-    public ArrayList<Plano> getPlanosPac() {
-        return planosPac;
-    }
-
-    public void setPlanosPac(ArrayList<Plano> planosPac) {
-        this.planosPac = planosPac;
-        paciente.setPlanosPac(planosPac);
-    }
-
     public ArrayList<Consulta> getConsultasPac() {
         return consultasPac;
     }
@@ -120,6 +111,15 @@ public class pacienteBean {
     public void setPacienteList(List<Paciente> pacienteList) {
         this.pacienteList = pacienteList;
     }
+
+    public ArrayList<String> getPlanosPac() {
+        return planosPac;
+    }
+
+    public void setPlanosPac(ArrayList<String> planosPac) {
+        this.planosPac = planosPac;
+    }    
+        
     
 //    public Paciente getPaciente() {
 //        return paciente;

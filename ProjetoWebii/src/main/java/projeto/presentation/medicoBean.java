@@ -37,6 +37,8 @@ public class medicoBean {
     private int registroProfi;
     private ArrayList<String> areaAtuacao  = new ArrayList<String>();
     private String stringAreaAtuacao;
+    
+    private ArrayList<String> planosRecebidos = new ArrayList<String>();
 
 //    private ArrayList<Endereco> enderecosAtendi;
 //    private ArrayList<Plano> planosRecebibos;
@@ -109,6 +111,14 @@ public class medicoBean {
             this.setAreaAtuacao(array_araAtuacao[i]);
         }
     }
+
+    public ArrayList<String> getPlanosRecebidos() {
+        return planosRecebidos;
+    }
+
+    public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
+        this.planosRecebidos = planosRecebidos;
+    }
     
 
  
@@ -124,5 +134,12 @@ public class medicoBean {
     public void setMedicoList(List<Medico> medicoList) {
          this.medicoList = medicodao.findMedicos();
     }
+    
+    public void excluirMedico(int id_rem1){
+        Long id_rem = Long.valueOf(id_rem1);
+        System.out.println("igual aaaa " +id_rem);
+        medicodao.removerMedico(id_rem);
+    }
+        
     
 }

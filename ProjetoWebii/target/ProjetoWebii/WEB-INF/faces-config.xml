@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config
     xmlns="http://xmlns.jcp.org/xml/ns/javaee"
@@ -6,3 +7,13 @@
     version="2.2">
 
 </faces-config>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+</faces-config>
+>>>>>>> 145e4634da6d276f03860adcaf93f8b406bf609b

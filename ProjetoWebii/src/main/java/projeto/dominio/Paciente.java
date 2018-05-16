@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Paciente extends Pessoa{
     Endereco enderecoPac;
-    ArrayList<Plano> planosPac;
+    ArrayList<String> planosPac; // ArrayList<Plano> -> <String>; Empresa detectada pelos primeiros digitos, e.g. 00-unimed, 01-amil
     ArrayList<Consulta> consultasPac;
 
     public Endereco getEnderecoPac() {
@@ -24,14 +24,6 @@ public class Paciente extends Pessoa{
         this.enderecoPac = enderecoPac;
     }
 
-    public ArrayList<Plano> getPlanosPac() {
-        return planosPac;
-    }
-
-    public void setPlanosPac(ArrayList<Plano> planosPac) {
-        this.planosPac = planosPac;
-    }
-
     public ArrayList<Consulta> getConsultasPac() {
         return consultasPac;
     }
@@ -39,8 +31,13 @@ public class Paciente extends Pessoa{
     public void setConsultasPac(ArrayList<Consulta> consultasPac) {
         this.consultasPac = consultasPac;
     }
-    
-    
-    
+
+    public ArrayList<String> getPlanosPac() {
+        return planosPac;
+    }
+
+    public void setPlanosPac(ArrayList<String> planosPac) {
+        this.planosPac = planosPac;
+    }
     
 }
