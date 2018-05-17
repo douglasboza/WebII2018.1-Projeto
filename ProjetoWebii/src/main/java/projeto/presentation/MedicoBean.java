@@ -129,7 +129,7 @@ public class MedicoBean implements Serializable{
     }
 
     public void setAreaAtuacao(ArrayList<String> itemAreaAtuacao) {
-        medico.setAreaAtuacao(areaAtuacao);
+        medico.setAreaAtuacao(itemAreaAtuacao);
     }
 
     public String getStringAreaAtuacao() {
@@ -142,6 +142,9 @@ public class MedicoBean implements Serializable{
         for (int i = 0; i < array_araAtuacao.length; i++) {
            areaAtuacao_aux.add(array_araAtuacao[i]);
         }
+        
+        System.out.println("passou aqui");
+        
         this.setAreaAtuacao(areaAtuacao_aux);
     }
 //
