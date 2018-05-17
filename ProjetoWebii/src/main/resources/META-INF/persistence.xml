@@ -5,12 +5,12 @@
          data source, this example data source is just for development and testing! -->
     <!-- The datasource is deployed as ${ds-deployment-location}, you
          can find it in the source at PostgreSQL_employee-ds.xml -->
-    <jta-data-source>java:/PostgresDS</jta-data-source>
+    <jta-data-source>java:/jboss/datasources/ExampleDS</jta-data-source>
     <properties>
       <!-- Properties for Hibernate -->
       <!-- Database dropping followed by creation -->
       <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="hibernate.connection.release_mode" value="ON_CLOSE" />
+      <property name="hibernate.connection.release_mode" value="ON_CLOSE"/>
       <!-- Print's out the SQL statement Hibernate is using to the console, useful for debugging -->
       <property name="hibernate.show_sql" value="false"/>
       <!-- Database creation. Artifacts remain unchanged after redeployment. -->

@@ -11,7 +11,9 @@
     <body>
         
         #{medicoBean}
-
+        <br/>
+        <h:link value="Home" outcome="index"/>
+        <br/>
         <h:form> 
             <h:panelGrid columns="2" >
                <h:outputLabel value="Nome"/>
@@ -47,14 +49,14 @@
             <br></br>
             
              <h:panelGrid columns="2" >
-               <h:outputLabel value="Área de atuação, separe com ;"/>
+               <h:outputLabel value="Areas de atuacao, separe com ;"/>
                <h:inputText value="#{medicoBean.stringAreaAtuacao}"/>
             </h:panelGrid>
             
             <h:inputHidden value="#{medicoBean.teste_editar}" id="hiddenteste" />
             <h:inputHidden value="#{medicoBean.id_pessoa}" id="hiddenId" />
             
-            <h:commandButton value="Add Médico" action="#{medicoBean.addMedico(medicoBean.teste_editar)}"/>    
+            <h:commandButton value="Add Medico" action="#{medicoBean.addMedico(medicoBean.teste_editar)}"/>    
             
         </h:form>
 
