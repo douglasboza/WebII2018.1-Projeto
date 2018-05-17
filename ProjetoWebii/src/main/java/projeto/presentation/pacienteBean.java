@@ -12,8 +12,9 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import projeto.data.pacienteDAO;
-import projeto.data.pessoaDAO;
+import projeto.data.DefaultDAO;
+import projeto.data.PacienteDAO;
+import projeto.data.PessoaDAO;
 import projeto.dominio.Consulta;
 import projeto.dominio.Paciente;
 import projeto.dominio.Pessoa;
@@ -26,8 +27,10 @@ import projeto.dominio.Pessoa;
 @Named (value = "pacienteBean")
 @RequestScoped
 public class pacienteBean implements Serializable{
-//    @Inject pessoaDAO pessoadao;
-    @Inject pacienteDAO pacientedao;
+//    @Inject PessoaDAO pessoadao;
+    @Inject PacienteDAO pacientedao;
+    @Inject DefaultDAO defaultdao;
+    
     
     Pessoa pessoa = new Pessoa();
     Paciente paciente = new Paciente();
@@ -147,10 +150,10 @@ public class pacienteBean implements Serializable{
         
     
         
-        public void excluirPaciente(int id_rem1){
+    public void excluirPaciente(int id_rem1){
         Long id_rem = Long.valueOf(id_rem1);
         System.out.println("igual aaaa " +id_rem);
-        pacientedao.removerPaciente(id_rem);
+        defaultdao.removerObj(id_rem, "Paciente");
     }
         
     public void editarPaciente(Paciente pac_editar){
@@ -166,10 +169,10 @@ public class pacienteBean implements Serializable{
         System.out.println("igual nome="+this.getPaciente());
         
         if(teste_editar == 1){
-            pacientedao.editarPaciente(paciente);
+            defaultdao.editarObjPessoa(paciente);
             System.out.println("igual iii "+paciente.getId_pessoa());
         }else{
-            pacientedao.addNew(this.paciente);
+            defaultdao.addNewObjPessoa(this.paciente);
             System.out.println("igual uuu "+this.paciente.getId_pessoa());
         }
       

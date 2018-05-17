@@ -13,7 +13,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import projeto.data.pessoaDAO;
+import projeto.data.PessoaDAO;
 import projeto.dominio.Pessoa;
 
 
@@ -29,9 +29,9 @@ import projeto.dominio.Pessoa;
 public class pessoaBean {
     
     
-    @Inject pessoaDAO dao;
+    @Inject PessoaDAO dao;
 
-//    pessoaDAO dao = new pessoaDAO();
+//    PessoaDAO dao = new PessoaDAO();
     
     private Pessoa pessoa = new Pessoa();
     private String nome;

@@ -24,7 +24,7 @@ import projeto.dominio.Pessoa;
 
 @Named
 @RequestScoped
-public class pessoaDAO {
+public class PessoaDAO {
 	@PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 

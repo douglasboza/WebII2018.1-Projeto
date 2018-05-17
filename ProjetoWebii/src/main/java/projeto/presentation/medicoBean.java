@@ -12,8 +12,9 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import projeto.data.medicoDAO;
-import projeto.data.pessoaDAO;
+import projeto.data.DefaultDAO;
+import projeto.data.MedicoDAO;
+import projeto.data.PessoaDAO;
 import projeto.dominio.Medico;
 import projeto.dominio.Pessoa;
 
@@ -26,10 +27,10 @@ import projeto.dominio.Pessoa;
 @RequestScoped
 
 public class medicoBean implements Serializable{
-    @Inject medicoDAO medicodao;
-//    @Inject pessoaDAO pessoadao;
+    @Inject MedicoDAO medicodao;
+    @Inject DefaultDAO defaultdao;
     
-//    Pessoa pessoa = new Pessoa();
+    Pessoa pessoa = new Pessoa();
     Medico medico = new Medico();
     
     private String nome;
@@ -167,7 +168,7 @@ public class medicoBean implements Serializable{
     public void excluirMedico(int id_rem1){
         Long id_rem = Long.valueOf(id_rem1);
         System.out.println("igual aaaa " +id_rem);
-        medicodao.removerMedico(id_rem);
+        defaultdao.removerObj(id_rem,"Medico");
     }
         
     public void editarMedico(Medico med_editar){
@@ -181,10 +182,10 @@ public class medicoBean implements Serializable{
         System.out.println("igual nome="+this.getMedico());
         
         if(teste_editar == 1){
-            medicodao.editarMedico(medico);
+            defaultdao.editarObjPessoa(medico);
             System.out.println("igual iii "+medico.getId_pessoa());
         }else{
-            medicodao.addNew(this.medico);
+            defaultdao.addNewObjPessoa(this.medico);
             System.out.println("igual uuu "+this.medico.getId_pessoa());
         }
       
