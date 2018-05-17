@@ -38,6 +38,7 @@ public class pessoaBean {
     private String telefone;
     private String cpf;
     private String email;
+    private String senha;
     
     private List<Pessoa> pessoaList = new ArrayList<>();
     
@@ -70,6 +71,15 @@ public class pessoaBean {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+        pessoa.setSenha(senha);
     }
 
     public void setEmail(String email) {
