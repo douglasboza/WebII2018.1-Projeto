@@ -12,7 +12,9 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
+import projeto.dominio.Medico;
 import projeto.dominio.Pessoa;
 import projeto.dominio.Paciente;
 
@@ -44,4 +46,30 @@ public class pacienteDAO {
         TypedQuery<Paciente> query = entityManager.createNamedQuery("findAllPacientes", Paciente.class);
         return query.getResultList();
     }
+    
+    @Transactional
+    public int removerPaciente(Long id_pessoa) {
+           int isSuccessful = entityManager.createQuery("delete from Paciente p where p.id_pessoa=:id_pessoa")
+                    .setParameter("id_pessoa", id_pessoa)
+                    .executeUpdate();
+            if (isSuccessful == 0) {
+                return 0;
+            }else{
+                return 1;
+            }
+    }
+        
+    public Paciente editarPaciente(Paciente paciente) {
+    try {
+                  userTransaction.begin();
+                  entityManager.merge(paciente);
+                  userTransaction.commit();
+          } catch (Exception e) {
+
+                  e.printStackTrace();
+          }
+          return paciente;
+    } 
+           
+           
 }

@@ -37,6 +37,8 @@ public class pacienteBean {
     private String nome;
     private String cpf;
     private String email;
+    private long id_pessoa;
+    private int teste_editar;
     private String telefone;
     
 //    Endereco enderecoPac = new Endereco();
@@ -47,6 +49,15 @@ public class pacienteBean {
 
     public void addPaciente() {
         pacientedao.addNew(paciente);
+    }
+    
+     public Long getId_pessoa() {
+        return id_pessoa;
+    }
+
+    public void setId_pessoa(Long id_pessoa) {
+        this.id_pessoa = id_pessoa;
+        this.paciente.setId_pessoa(id_pessoa);
     }
     
     public String getNome() {
@@ -75,7 +86,13 @@ public class pacienteBean {
         this.email = email;
         paciente.setEmail(email);
     }
+    public int getTeste_editar() {
+        return teste_editar;
+    }
 
+    public void setTeste_editar(int teste_editar) {
+        this.teste_editar = teste_editar;
+    }
     public String getTelefone() {
         return telefone;
     }
@@ -130,5 +147,46 @@ public class pacienteBean {
 //    public void setPaciente(Paciente paciente) {
 //        this.paciente = paciente;
 //    };
+        
+        public void excluirPaciente(int id_rem1){
+        Long id_rem = Long.valueOf(id_rem1);
+        System.out.println("igual aaaa " +id_rem);
+        pacientedao.removerPaciente(id_rem);
+    }
+        
+    public void editarPaciente(Paciente pac_editar){
+        this.setPaciente(pac_editar);
+        this.setTeste_editar(1);
+        System.out.println("igual bbbb " +this.getPaciente());
+//      
+    }   
+
+    public void addPaciente(int teste_editar) {
+        System.out.println("igual nome="+this.getPaciente());
+        
+        if(teste_editar == 1){
+            pacientedao.editarPaciente(paciente);
+            System.out.println("igual iii "+paciente.getId_pessoa());
+        }else{
+            pacientedao.addNew(this.paciente);
+            System.out.println("igual uuu "+this.paciente.getId_pessoa());
+        }
+      
+    }
+    
+        
+    public Paciente getPaciente() {
+        return this.paciente;
+    }
+    
+    public void setPaciente(Paciente pac_editar) {
+        this.setNome(pac_editar.getNome());
+        this.setCpf(pac_editar.getCpf());
+        this.setEmail(pac_editar.getEmail());
+        this.setTelefone(pac_editar.getTelefone());
+        this.setId_pessoa(pac_editar.getId_pessoa());
+        this.paciente = pac_editar;
+    }
+    
     
 }
