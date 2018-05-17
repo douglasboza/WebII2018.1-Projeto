@@ -5,8 +5,10 @@
  */
 package projeto.data;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -22,27 +24,27 @@ import projeto.dominio.Pessoa;
  * @author douglasboza
  */
 
-
-
 @Named
 @RequestScoped
-public class medicoDAO {
+
+public class medicoDAO implements Serializable{
 	@PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 
 	@Resource
 	private UserTransaction userTransaction;
+        
 
 	public Medico addNew(Medico medico) {
-		try {
-			userTransaction.begin();
-			entityManager.persist(medico);
-			userTransaction.commit();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		return medico;
+            try {
+                userTransaction.begin();
+                entityManager.persist(medico);
+                userTransaction.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            return medico;
 	}
   
       
@@ -65,4 +67,18 @@ public class medicoDAO {
                 return 1;
             }
         }
+        
+        public Medico editarMedico(Medico medico) {
+          try {
+			userTransaction.begin();
+			entityManager.merge(medico);
+			userTransaction.commit();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return medico;
+        }
+           
+           
 }

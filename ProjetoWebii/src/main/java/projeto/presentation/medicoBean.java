@@ -5,14 +5,17 @@
  */
 package projeto.presentation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import projeto.data.medicoDAO;
 import projeto.data.pessoaDAO;
 import projeto.dominio.Medico;
+import projeto.dominio.Paciente;
 import projeto.dominio.Pessoa;
 
 /**
@@ -23,7 +26,7 @@ import projeto.dominio.Pessoa;
 @Named(value = "medicoBean")
 @RequestScoped
 
-public class medicoBean {
+public class medicoBean implements Serializable{
     @Inject medicoDAO medicodao;
     @Inject pessoaDAO pessoadao;
     
@@ -36,9 +39,16 @@ public class medicoBean {
     private String telefone;
     private int registroProfi;
     private ArrayList<String> areaAtuacao  = new ArrayList<String>();
+    private ArrayList<String> areaAtuacao_aux  = new ArrayList<String>();
     private String stringAreaAtuacao;
+<<<<<<< HEAD
+    private int teste_editar;
+    private Long id_pessoa;
+//    private ArrayList<String> planosRecebidos = new ArrayList<String>();
+=======
     
     private ArrayList<String> planosRecebidos = new ArrayList<String>();
+>>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
 
 //    private ArrayList<Endereco> enderecosAtendi;
 //    private ArrayList<Plano> planosRecebibos;
@@ -46,6 +56,33 @@ public class medicoBean {
     
     private List<Medico> medicoList = new ArrayList<>();
 
+    public Long getId_pessoa() {
+        return id_pessoa;
+    }
+
+    public void setId_pessoa(Long id_pessoa) {
+        this.id_pessoa = id_pessoa;
+        this.medico.setId_pessoa(id_pessoa);
+    }
+    
+    
+    
+    
+    
+    public medicoBean(){
+        
+    }
+
+    public int getTeste_editar() {
+        return teste_editar;
+    }
+
+    public void setTeste_editar(int teste_editar) {
+        this.teste_editar = teste_editar;
+    }
+    
+    
+    
     public String getNome() {
         return nome;
     }
@@ -95,8 +132,7 @@ public class medicoBean {
         return areaAtuacao;
     }
 
-    public void setAreaAtuacao(String itemAreaAtuacao) {
-        this.areaAtuacao.add(itemAreaAtuacao);
+    public void setAreaAtuacao(ArrayList<String> itemAreaAtuacao) {
         medico.setAreaAtuacao(areaAtuacao);
     }
 
@@ -108,8 +144,20 @@ public class medicoBean {
         this.stringAreaAtuacao = stringAreaAtuacao;
         String[] array_araAtuacao = stringAreaAtuacao.split(";", -1);
         for (int i = 0; i < array_araAtuacao.length; i++) {
-            this.setAreaAtuacao(array_araAtuacao[i]);
+           areaAtuacao_aux.add(array_araAtuacao[i]);
         }
+<<<<<<< HEAD
+        this.setAreaAtuacao(areaAtuacao_aux);
+    }
+//
+//    public ArrayList<String> getPlanosRecebidos() {
+//        return planosRecebidos;
+//    }
+//
+//    public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
+//        this.planosRecebidos = planosRecebidos;
+//    }
+=======
     }
 
     public ArrayList<String> getPlanosRecebidos() {
@@ -119,13 +167,11 @@ public class medicoBean {
     public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
         this.planosRecebidos = planosRecebidos;
     }
+>>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
     
 
  
-    public void addMedico() {
-        medicodao.addNew(medico);
-    }
-    
+
     public List<Medico> getMedicoList() {
         this.medicoList = medicodao.findMedicos();
         return this.medicoList;
@@ -141,5 +187,43 @@ public class medicoBean {
         medicodao.removerMedico(id_rem);
     }
         
+    public void editarMedico(Medico med_editar){
+        this.setMedico(med_editar);
+        this.setTeste_editar(1);
+        System.out.println("igual bbbb " +this.getMedico());
+//      
+    }   
+
+    public void addMedico(int teste_editar) {
+        System.out.println("igual nome="+this.getMedico());
+        
+        if(teste_editar == 1){
+            medicodao.editarMedico(medico);
+            System.out.println("igual iii "+medico.getId_pessoa());
+        }else{
+            medicodao.addNew(this.medico);
+            System.out.println("igual uuu "+this.medico.getId_pessoa());
+        }
+      
+    }
     
+    public Medico getMedico() {
+        return this.medico;
+    }
+
+    
+    public void setMedico(Medico med_editar) {
+        this.setNome(med_editar.getNome());
+        this.setAreaAtuacao(med_editar.getAreaAtuacao());
+        this.setCpf(med_editar.getCpf());
+        this.setEmail(med_editar.getEmail());
+        this.setTelefone(med_editar.getTelefone());
+//        this.setPlanosRecebidos(med_editar.getPlanosRecebibos());
+        this.setRegistroProfi(med_editar.getRegistroProfi());
+        this.setId_pessoa(med_editar.getId_pessoa());
+        this.medico = med_editar;
+    }
+      
+    
+   
 }
