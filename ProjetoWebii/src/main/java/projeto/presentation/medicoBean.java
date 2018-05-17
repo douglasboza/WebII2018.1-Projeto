@@ -27,9 +27,9 @@ import projeto.dominio.Pessoa;
 
 public class medicoBean implements Serializable{
     @Inject medicoDAO medicodao;
-    @Inject pessoaDAO pessoadao;
+//    @Inject pessoaDAO pessoadao;
     
-    Pessoa pessoa = new Pessoa();
+//    Pessoa pessoa = new Pessoa();
     Medico medico = new Medico();
     
     private String nome;
@@ -41,7 +41,7 @@ public class medicoBean implements Serializable{
     private ArrayList<String> areaAtuacao_aux  = new ArrayList<String>();
     private String stringAreaAtuacao;
     private int teste_editar;
-    private Long id_pessoa;
+    private Long id_pessoa=null;
 //    private ArrayList<String> planosRecebidos = new ArrayList<String>();
 
 //    private ArrayList<Endereco> enderecosAtendi;
@@ -57,6 +57,7 @@ public class medicoBean implements Serializable{
     public void setId_pessoa(Long id_pessoa) {
         this.id_pessoa = id_pessoa;
         this.medico.setId_pessoa(id_pessoa);
+        System.out.println("setou como"+ id_pessoa);
     }
     
     

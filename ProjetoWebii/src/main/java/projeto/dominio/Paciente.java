@@ -14,6 +14,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  *
  * @author douglasboza
  */
+
 @Entity
 @PrimaryKeyJoinColumn(name="id_pessoa")
 @NamedQuery(name = "findAllPacientes", query = "select e from Paciente e")

@@ -6,6 +6,7 @@
 package projeto.presentation;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -14,11 +15,8 @@ import javax.inject.Named;
 import projeto.data.pacienteDAO;
 import projeto.data.pessoaDAO;
 import projeto.dominio.Consulta;
-import projeto.dominio.Endereco;
-import projeto.dominio.Medico;
 import projeto.dominio.Paciente;
 import projeto.dominio.Pessoa;
-import projeto.dominio.Plano;
 
 /**
  *
@@ -27,8 +25,8 @@ import projeto.dominio.Plano;
 
 @Named (value = "pacienteBean")
 @RequestScoped
-public class pacienteBean {
-    @Inject pessoaDAO pessoadao;
+public class pacienteBean implements Serializable{
+//    @Inject pessoaDAO pessoadao;
     @Inject pacienteDAO pacientedao;
     
     Pessoa pessoa = new Pessoa();
@@ -37,7 +35,7 @@ public class pacienteBean {
     private String nome;
     private String cpf;
     private String email;
-    private long id_pessoa;
+    private Long id_pessoa;
     private int teste_editar;
     private String telefone;
     
@@ -46,19 +44,27 @@ public class pacienteBean {
     ArrayList<Consulta> consultasPac = new ArrayList<Consulta>();
     
     private List<Paciente> pacienteList = new ArrayList<>();
+    
+    private pacienteBean(){
+        System.out.println("setou comopaciente antes"+ this.paciente.getId_pessoa());
 
-    public void addPaciente() {
-        pacientedao.addNew(paciente);
     }
+
     
      public Long getId_pessoa() {
         return id_pessoa;
     }
 
     public void setId_pessoa(Long id_pessoa) {
+        
         this.id_pessoa = id_pessoa;
         this.paciente.setId_pessoa(id_pessoa);
+        System.out.println("setou comopaciente"+ this.paciente.getId_pessoa());
+
+
     }
+    
+    
     
     public String getNome() {
         return nome;
@@ -140,13 +146,6 @@ public class pacienteBean {
     }    
         
     
-//    public Paciente getPaciente() {
-//        return paciente;
-//    }
-//
-//    public void setPaciente(Paciente paciente) {
-//        this.paciente = paciente;
-//    };
         
         public void excluirPaciente(int id_rem1){
         Long id_rem = Long.valueOf(id_rem1);
@@ -162,6 +161,8 @@ public class pacienteBean {
     }   
 
     public void addPaciente(int teste_editar) {
+        System.out.println("chegou 2");
+        System.out.println("chegou ="+this.paciente);
         System.out.println("igual nome="+this.getPaciente());
         
         if(teste_editar == 1){
@@ -187,6 +188,6 @@ public class pacienteBean {
         this.setId_pessoa(pac_editar.getId_pessoa());
         this.paciente = pac_editar;
     }
-    
+//    
     
 }

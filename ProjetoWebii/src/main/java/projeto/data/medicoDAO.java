@@ -36,6 +36,7 @@ public class medicoDAO implements Serializable{
         
 
 	public Medico addNew(Medico medico) {
+            System.out.println("id do medico="+medico.getId_pessoa());
             try {
                 userTransaction.begin();
                 entityManager.persist(medico);
@@ -69,7 +70,7 @@ public class medicoDAO implements Serializable{
         }
         
         public Medico editarMedico(Medico medico) {
-          try {
+                try {
 			userTransaction.begin();
 			entityManager.merge(medico);
 			userTransaction.commit();
