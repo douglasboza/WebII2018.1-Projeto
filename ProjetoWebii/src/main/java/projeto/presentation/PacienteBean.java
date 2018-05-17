@@ -63,12 +63,8 @@ public class PacienteBean implements Serializable{
         this.id_pessoa = id_pessoa;
         this.paciente.setId_pessoa(id_pessoa);
         System.out.println("setou comopaciente"+ this.paciente.getId_pessoa());
-
-
     }
-    
-    
-    
+
     public String getNome() {
         return nome;
     }

@@ -63,9 +63,6 @@ public class MedicoBean implements Serializable{
     }
     
     
-    
-    
-    
     public MedicoBean(){
         
     }
