@@ -15,7 +15,6 @@ import javax.inject.Named;
 import projeto.data.medicoDAO;
 import projeto.data.pessoaDAO;
 import projeto.dominio.Medico;
-import projeto.dominio.Paciente;
 import projeto.dominio.Pessoa;
 
 /**
@@ -41,14 +40,9 @@ public class medicoBean implements Serializable{
     private ArrayList<String> areaAtuacao  = new ArrayList<String>();
     private ArrayList<String> areaAtuacao_aux  = new ArrayList<String>();
     private String stringAreaAtuacao;
-<<<<<<< HEAD
     private int teste_editar;
     private Long id_pessoa;
 //    private ArrayList<String> planosRecebidos = new ArrayList<String>();
-=======
-    
-    private ArrayList<String> planosRecebidos = new ArrayList<String>();
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
 
 //    private ArrayList<Endereco> enderecosAtendi;
 //    private ArrayList<Plano> planosRecebibos;
@@ -146,7 +140,6 @@ public class medicoBean implements Serializable{
         for (int i = 0; i < array_araAtuacao.length; i++) {
            areaAtuacao_aux.add(array_araAtuacao[i]);
         }
-<<<<<<< HEAD
         this.setAreaAtuacao(areaAtuacao_aux);
     }
 //
@@ -157,17 +150,6 @@ public class medicoBean implements Serializable{
 //    public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
 //        this.planosRecebidos = planosRecebidos;
 //    }
-=======
-    }
-
-    public ArrayList<String> getPlanosRecebidos() {
-        return planosRecebidos;
-    }
-
-    public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
-        this.planosRecebidos = planosRecebidos;
-    }
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
     
 
  
@@ -223,7 +205,6 @@ public class medicoBean implements Serializable{
         this.setId_pessoa(med_editar.getId_pessoa());
         this.medico = med_editar;
     }
-      
+        
     
-   
 }

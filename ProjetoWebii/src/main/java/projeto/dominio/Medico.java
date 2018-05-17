@@ -34,11 +34,10 @@ public class Medico extends Pessoa{
     
     int registroProfi;
     ArrayList<String> areaAtuacao;
-<<<<<<< HEAD
+
 //    ArrayList<Endereco> enderecosAtendi;
-=======
+
     ArrayList<Endereco> enderecosAtendi;
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
     ArrayList<String> planosRecebibos;
     ArrayList<Consulta> listaConsultas;
     
@@ -97,9 +96,5 @@ public class Medico extends Pessoa{
     public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
         this.listaConsultas = listaConsultas;
     }
-    
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c

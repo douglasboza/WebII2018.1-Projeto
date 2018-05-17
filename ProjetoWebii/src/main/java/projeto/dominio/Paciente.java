@@ -6,7 +6,6 @@
 package projeto.dominio;
 
 import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -20,11 +19,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @NamedQuery(name = "findAllPacientes", query = "select e from Paciente e")
 
 public class Paciente extends Pessoa{
-<<<<<<< HEAD
 //    Endereco enderecoPac;
-=======
-    Endereco enderecoPac;
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
     ArrayList<String> planosPac; // ArrayList<Plano> -> <String>; Empresa detectada pelos primeiros digitos, e.g. 00-unimed, 01-amil
     ArrayList<Consulta> consultasPac;
 
@@ -44,17 +39,6 @@ public class Paciente extends Pessoa{
         this.consultasPac = consultasPac;
     }
 
-<<<<<<< HEAD
-=======
-    public ArrayList<Consulta> getConsultasPac() {
-        return consultasPac;
-    }
-
-    public void setConsultasPac(ArrayList<Consulta> consultasPac) {
-        this.consultasPac = consultasPac;
-    }
-
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
     public ArrayList<String> getPlanosPac() {
         return planosPac;
     }
@@ -62,10 +46,5 @@ public class Paciente extends Pessoa{
     public void setPlanosPac(ArrayList<String> planosPac) {
         this.planosPac = planosPac;
     }
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> 36430b8ed5d771735a819b6be753f2b1b4deb05c
     
 }
