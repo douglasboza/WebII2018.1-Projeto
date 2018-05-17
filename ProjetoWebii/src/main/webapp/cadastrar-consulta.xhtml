@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+    <h:head>
+        <title>Cadastrar consulta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        
+        #{ConsultaBean}
+        <br/>
+        <h:link value="Home" outcome="index"/>
+        <br/>
+        <h:form> 
+            <h:panelGrid columns="2" >
+               <h:outputLabel value="Nome"/>
+               <h:inputText value="#{medicoBean.nome}"/>          
+            </h:panelGrid>
+             
+            <br></br>
+            <h:panelGrid columns="2" >
+               <h:outputLabel value="Registro profissional"/>
+               <h:inputText value="#{medicoBean.registroProfi}"/>          
+            </h:panelGrid>
+             
+            <br></br>
+             
+            <h:panelGrid columns="2" >
+               <h:outputLabel value="Telefone"/>
+               <h:inputText value="#{medicoBean.telefone}"/>
+            </h:panelGrid>
+            
+            <br></br>
+            
+        
+            
+            <h:inputHidden value="#{ConsultaBean.teste_editar}" id="hiddenteste" />
+            <h:inputHidden value="#{ConsultaBean.id_pessoa}" id="hiddenId" />
+            
+            <h:commandButton value="Add Medico" action="#{ConsultaBean.addMedico(ConsultaBean.teste_editar)}"/>    
+            
+        </h:form>
+
+        <h:form>
+            <h:dataTable value="#{ConsultaBean.medicoList}" var="emp" border="1">
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText value="#{emp.nome}" />
+                            
+                </h:column>
+                <h:column>
+                            <f:facet name="header">
+                                    <h:outputText value="registro pro" />
+                            </f:facet>
+                            <h:outputText value="#{emp.registroProfi}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="id pessoa" />
+                            </f:facet>
+                            <h:outputText value="#{emp.id_pessoa}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="cpf" />
+                            </f:facet>
+                            <h:outputText value="#{emp.cpf}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Email" />
+                            </f:facet>
+                            <h:outputText value="#{emp.email}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Telefone" />
+                            </f:facet>
+                            <h:outputText value="#{emp.telefone}" />
+                </h:column>
+                 <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Area de atuacao" />
+                            </f:facet>
+                            <h:outputText value="#{emp.areaAtuacao}" />
+                </h:column>
+                <h:column>
+                    <h:commandButton id="submit" 
+                    value="Remover" 
+                    action="#{medicoBean.excluirMedico(emp.id_pessoa)}"></h:commandButton>
+                </h:column>
+                           
+                <h:column>
+                  <h:commandButton id="editar" value="Editar" action="#{medicoBean.editarMedico(emp)}"></h:commandButton>
+               </h:column>
+
+            </h:dataTable>
+        </h:form>   
+        
+    </body>
+</html>
