@@ -26,7 +26,7 @@ import projeto.dominio.Pessoa;
 @Named(value = "medicoBean")
 @RequestScoped
 
-public class medicoBean implements Serializable{
+public class MedicoBean implements Serializable{
     @Inject MedicoDAO medicodao;
     @Inject DefaultDAO defaultdao;
     
@@ -65,7 +65,7 @@ public class medicoBean implements Serializable{
     
     
     
-    public medicoBean(){
+    public MedicoBean(){
         
     }
 

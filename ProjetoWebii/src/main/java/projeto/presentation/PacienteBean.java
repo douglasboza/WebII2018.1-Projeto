@@ -26,7 +26,7 @@ import projeto.dominio.Pessoa;
 
 @Named (value = "pacienteBean")
 @RequestScoped
-public class pacienteBean implements Serializable{
+public class PacienteBean implements Serializable{
 //    @Inject PessoaDAO pessoadao;
     @Inject PacienteDAO pacientedao;
     @Inject DefaultDAO defaultdao;
@@ -48,7 +48,7 @@ public class pacienteBean implements Serializable{
     
     private List<Paciente> pacienteList = new ArrayList<>();
     
-    private pacienteBean(){
+    private PacienteBean(){
         System.out.println("setou comopaciente antes"+ this.paciente.getId_pessoa());
 
     }

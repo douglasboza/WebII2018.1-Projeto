@@ -31,8 +31,9 @@ public class MedicoDAO implements Serializable{
 	@PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 
-	@Resource
+	@Resource  
 	private UserTransaction userTransaction;
+            
         
 
 //	public Medico addNew(Medico medico) {
