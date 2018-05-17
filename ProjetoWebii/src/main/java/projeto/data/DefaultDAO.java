@@ -27,7 +27,7 @@ import projeto.dominio.Medico;
 
 public class DefaultDAO {
     
-    @PersistenceContext(unitName = "ProjetoPU")
+        @PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 
 	@Resource

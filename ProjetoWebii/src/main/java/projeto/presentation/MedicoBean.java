@@ -15,6 +15,7 @@ import javax.inject.Named;
 import projeto.data.DefaultDAO;
 import projeto.data.MedicoDAO;
 import projeto.data.PessoaDAO;
+import projeto.dominio.Consulta;
 import projeto.dominio.Medico;
 import projeto.dominio.Pessoa;
 
@@ -47,7 +48,7 @@ public class MedicoBean implements Serializable{
 
 //    private ArrayList<Endereco> enderecosAtendi;
 //    private ArrayList<Plano> planosRecebibos;
-//    private ArrayList<Consulta> listaConsultas;
+    private ArrayList<Consulta> listaConsultas;
     
     private List<Medico> medicoList = new ArrayList<>();
 
@@ -147,6 +148,8 @@ public class MedicoBean implements Serializable{
         
         this.setAreaAtuacao(areaAtuacao_aux);
     }
+    
+    
 //
 //    public ArrayList<String> getPlanosRecebidos() {
 //        return planosRecebidos;
@@ -155,9 +158,26 @@ public class MedicoBean implements Serializable{
 //    public void setPlanosRecebidos(ArrayList<String> planosRecebidos) {
 //        this.planosRecebidos = planosRecebidos;
 //    }
-    
 
- 
+    public ArrayList<Consulta> getListaConsultas() {
+        return listaConsultas;
+    }
+
+    public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
+        this.listaConsultas = listaConsultas;
+    }
+    
+    /* TODO Gerenciamento de consultas */
+    public void marcarConsulta(Consulta e){
+        listaConsultas.add(e);
+    }
+    
+//  Retorna motivo de ter desmarcado
+    public String desmarcarConsulta(){
+        return null;
+    }
+    
+    
 
     public List<Medico> getMedicoList() {
         this.medicoList = medicodao.findMedicos();

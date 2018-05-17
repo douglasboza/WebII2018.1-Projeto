@@ -28,7 +28,7 @@ import projeto.dominio.Pessoa;
 @RequestScoped
 
 public class MedicoDAO implements Serializable{
-	@PersistenceContext(unitName = "ProjetoPU")
+        @PersistenceContext(unitName = "ProjetoPU")
 	private EntityManager entityManager;
 
 	@Resource  

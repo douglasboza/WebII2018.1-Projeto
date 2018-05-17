@@ -67,8 +67,4 @@ public class Consulta {
         this.id_pessoa = id_pessoa;
     }
     
-    
-    
-    
-    
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Marcar consulta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <!-- TODO Tabela de agenda do medico; Clicar nos horarios livres; Consultar Medico.Consulta.horaInicio/horaFim -->
+        <!-- (?) Mudar horaInicio/Fim pra string; "padrao de horarios" (e.g. 30min), entao nao precisa de horaFim -->
+        <!-- Montar tabela lendo listaConsulta do medicoBean; -->
+        
+        <h:link value="Home" outcome="index"/>
+        
+        <!-- Agenda (tabela); Pressupondo que usuario esta logado -->
+        <h:form>
+            <h:dataTable>
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="cpf" />
+                    </f:facet>
+                    <h:outputText value="#{emp.cpf}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        
+    </body>
+</html>
