@@ -9,32 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        #{pessoaBean}
         
-        <h:form>
-            <h:panelGrid columns="2" >
-
-               <h:outputLabel value="Nome : "/>
-                <h:inputText value="#{pessoaBean.nome}"/>
-
-            </h:panelGrid>
-
-          <h:commandButton value="Add usuario" action="#{pessoaBean.addPessoa}"/>            
-       </h:form>
-        
-        
-        <h:dataTable value="#{pessoaBean.pessoaList}" var="emp" border="1">
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Name" />
-			</f:facet>
-			<h:outputText value="#{emp.nome}" />
-		</h:column>
-	</h:dataTable>
         
         <h:link value="Cadastrar medico" outcome="novo-medico"/> <br/>
         <h:link value="Cadastrar paciente" outcome="novo-paciente"/> <br/>
         <h:link value="Marcar consulta" outcome="marcar-consulta"/> <br/>
+        <h:link value="Cadastrar consulta" outcome="cadastrar-consulta"/> <br/>
         <h:link value="Login" outcome="login"/> <br/>
 
     </body>

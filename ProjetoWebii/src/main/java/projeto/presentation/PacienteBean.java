@@ -149,7 +149,7 @@ public class PacienteBean implements Serializable{
     public void excluirPaciente(int id_rem1){
         Long id_rem = Long.valueOf(id_rem1);
         System.out.println("igual aaaa " +id_rem);
-        defaultdao.removerObj(id_rem, "Paciente");
+        defaultdao.removerObj(id_rem, "Paciente", "id_pessoa");
     }
         
     public void editarPaciente(Paciente pac_editar){

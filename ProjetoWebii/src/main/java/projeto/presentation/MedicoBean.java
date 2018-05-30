@@ -188,7 +188,7 @@ public class MedicoBean implements Serializable{
     public void excluirMedico(int id_rem1){
         Long id_rem = Long.valueOf(id_rem1);
         System.out.println("igual aaaa " +id_rem);
-        defaultdao.removerObj(id_rem,"Medico");
+        defaultdao.removerObj(id_rem, "Medico", "id_pessoa");
     }
         
     public void editarMedico(Medico med_editar){

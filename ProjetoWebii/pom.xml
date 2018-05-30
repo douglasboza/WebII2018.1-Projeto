@@ -32,6 +32,19 @@
   		<artifactId>javaee-web-api</artifactId>
   		<version>7.0</version>
   	</dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>4.0</version>
+        </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+        <url>http://repository.primefaces.org</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
     <name>ProjetoWebii</name>
 </project>

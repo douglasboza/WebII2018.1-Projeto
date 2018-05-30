@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Cadastrar consulta</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,22 +16,22 @@
         <h:link value="Home" outcome="index"/>
         <br/>
         <h:form> 
-            <h:panelGrid columns="2" >
-               <h:outputLabel value="Nome"/>
-               <h:inputText value="#{medicoBean.nome}"/>          
+            
+            
+            <h:panelGrid columns="2" >               
+                <p:outputLabel for="horaInicio" value="Hora início:" />
+                <p:calendar id="horaInicio" value="#{ConsultaBean.horaInicio}" pattern="MM/dd/yyyy HH:mm:ss" />
             </h:panelGrid>
-             
             <br></br>
-            <h:panelGrid columns="2" >
-               <h:outputLabel value="Registro profissional"/>
-               <h:inputText value="#{medicoBean.registroProfi}"/>          
+            <h:panelGrid columns="2" >               
+                <p:outputLabel for="horaFim" value="Hora fim:" />
+                <p:calendar id="horaFim" value="#{ConsultaBean.horaFim}" pattern="MM/dd/yyyy HH:mm:ss" />
             </h:panelGrid>
-             
             <br></br>
-             
+       
             <h:panelGrid columns="2" >
-               <h:outputLabel value="Telefone"/>
-               <h:inputText value="#{medicoBean.telefone}"/>
+               <h:outputLabel value="Observação"/>
+               <h:inputText value="#{ConsultaBean.motivoCancelamento}"/>
             </h:panelGrid>
             
             <br></br>
@@ -38,65 +39,79 @@
         
             
             <h:inputHidden value="#{ConsultaBean.teste_editar}" id="hiddenteste" />
-            <h:inputHidden value="#{ConsultaBean.id_pessoa}" id="hiddenId" />
+            <h:inputHidden value="#{ConsultaBean.id_consulta}" id="hiddenId" />
             
-            <h:commandButton value="Add Medico" action="#{ConsultaBean.addMedico(ConsultaBean.teste_editar)}"/>    
+            <h:commandButton value="Add Medico" action="#{ConsultaBean.addConsulta(ConsultaBean.teste_editar)}"/>    
+            
+           
             
         </h:form>
 
         <h:form>
-            <h:dataTable value="#{ConsultaBean.medicoList}" var="emp" border="1">
+            <p>Status</p>
+            <p>1 = Disponível</p>
+            <p>2 = Marcada</p>
+            <p>3 = Cancelada</p>
+            
+            <h:dataTable value="#{ConsultaBean.consultaList}" var="emp" border="1">
+                <p>Lista com as consultas do médico com id = 2</p>
                 <h:column>
-                            <f:facet name="header"> 
-                                <h:outputText value="Nome" />
-                            </f:facet>
-                            <h:outputText value="#{emp.nome}" />
-                            
+                    <f:facet name="header"> 
+                        <h:outputText value="id_consulta" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_consulta}" />
                 </h:column>
+                
                 <h:column>
-                            <f:facet name="header">
-                                    <h:outputText value="registro pro" />
-                            </f:facet>
-                            <h:outputText value="#{emp.registroProfi}" />
+                    <f:facet name="header"> 
+                        <h:outputText value="id_medico" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_medico}" />
                 </h:column>
+                
                 <h:column>
-                            <f:facet name="header"> 
-                                <h:outputText value="id pessoa" />
-                            </f:facet>
-                            <h:outputText value="#{emp.id_pessoa}" />
+                    <f:facet name="header"> 
+                        <h:outputText value="id_pessoa" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_pessoa}" />
                 </h:column>
+                
                 <h:column>
-                            <f:facet name="header"> 
-                                <h:outputText value="cpf" />
-                            </f:facet>
-                            <h:outputText value="#{emp.cpf}" />
+                    <f:facet name="header"> 
+                        <h:outputText value="Status" />
+                    </f:facet>
+                    <h:outputText value="#{emp.status}" />
                 </h:column>
+                
                 <h:column>
-                            <f:facet name="header"> 
-                                <h:outputText value="Email" />
-                            </f:facet>
-                            <h:outputText value="#{emp.email}" />
+                    <f:facet name="header"> 
+                        <h:outputText value="Hora fim" />
+                    </f:facet>
+                    <h:outputText value="#{emp.horaInicio}" />
                 </h:column>
+                
                 <h:column>
-                            <f:facet name="header"> 
-                                <h:outputText value="Telefone" />
-                            </f:facet>
-                            <h:outputText value="#{emp.telefone}" />
+                    <f:facet name="header"> 
+                        <h:outputText value="Hora fim" />
+                    </f:facet>
+                    <h:outputText value="#{emp.horaFim}" />
                 </h:column>
-                 <h:column>
-                            <f:facet name="header"> 
-                                <h:outputText value="Area de atuacao" />
-                            </f:facet>
-                            <h:outputText value="#{emp.areaAtuacao}" />
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Motivo cancelamento/Observação" />
+                    </f:facet>
+                    <h:outputText value="#{emp.motivoCancelamento}" />
                 </h:column>
+                
                 <h:column>
                     <h:commandButton id="submit" 
                     value="Remover" 
-                    action="#{medicoBean.excluirMedico(emp.id_pessoa)}"></h:commandButton>
+                    action="#{ConsultaBean.excluirConsulta(emp.id_consulta)}"></h:commandButton>
                 </h:column>
                            
                 <h:column>
-                  <h:commandButton id="editar" value="Editar" action="#{medicoBean.editarMedico(emp)}"></h:commandButton>
+                  <h:commandButton id="editar" value="Editar" action="#{ConsultaBean.editarConsulta(emp)}"></h:commandButton>
                </h:column>
 
             </h:dataTable>

@@ -50,8 +50,8 @@ public class DefaultDAO {
      
         
         @Transactional
-        public int removerObj(Long id_obj, String tabela) {
-           int isSuccessful = entityManager.createQuery("delete from "+tabela+" p where p.id_pessoa=:id_obj")
+        public int removerObj(Long id_obj, String tabela, String primare_key) {
+           int isSuccessful = entityManager.createQuery("delete from "+tabela+" p where p."+primare_key+"=:id_obj")
                     .setParameter("id_obj", id_obj)
                     .executeUpdate();
             if (isSuccessful == 0) {

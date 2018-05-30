@@ -21,15 +21,123 @@ and open the template in the editor.
         
         <!-- Agenda (tabela); Pressupondo que usuario esta logado -->
         <h:form>
-            <h:dataTable>
+            <h:dataTable value="#{medicoBean.medicoList}" var="emp" border="1">
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText value="#{emp.nome}" />
+                            
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Id médico" />
+                            </f:facet>
+                            <h:outputText value="#{emp.id_pessoa}" />
+                            
+                </h:column>
+                <h:column>
+                            <f:facet name="header">
+                                    <h:outputText value="registro pro" />
+                            </f:facet>
+                            <h:outputText value="#{emp.registroProfi}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Email" />
+                            </f:facet>
+                            <h:outputText value="#{emp.email}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Telefone" />
+                            </f:facet>
+                            <h:outputText value="#{emp.telefone}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Area de atuacao" />
+                            </f:facet>
+                            <h:outputText value="#{emp.areaAtuacao}" />
+                </h:column>
+                <h:column>
+                    <h:commandButton id="submit" 
+                    value="Selecionar" 
+                    action="#{ConsultaBean.selecionarMedico(emp.id_pessoa)}"></h:commandButton>
+                </h:column>
+                          
+
+            </h:dataTable>
+        </h:form>   
+        <h:form>
+            <p>Status</p>
+            <p>1 = Disponível</p>
+            <p>2 = Marcada</p>
+            <p>3 = Cancelada</p>
+            
+            <h:dataTable value="#{ConsultaBean.consultaList}" var="emp" border="1">
+                <p>Lista com as consultas do médico com id = 2</p>
                 <h:column>
                     <f:facet name="header"> 
-                        <h:outputText value="cpf" />
+                        <h:outputText value="id_consulta" />
                     </f:facet>
-                    <h:outputText value="#{emp.cpf}" />
+                    <h:outputText value="#{emp.id_consulta}" />
                 </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="id_medico" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_medico}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="id_pessoa" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_pessoa}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Status" />
+                    </f:facet>
+                    <h:outputText value="#{emp.status}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Hora fim" />
+                    </f:facet>
+                    <h:outputText value="#{emp.horaInicio}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Hora fim" />
+                    </f:facet>
+                    <h:outputText value="#{emp.horaFim}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Motivo cancelamento/Observação" />
+                    </f:facet>
+                    <h:outputText value="#{emp.motivoCancelamento}" />
+                </h:column>
+                
+                <h:column>
+                    <h:commandButton id="submit" 
+                    value="Remover" 
+                    action="#{ConsultaBean.excluirConsulta(emp.id_consulta)}"></h:commandButton>
+                </h:column>
+                           
+                <h:column>
+                  <h:commandButton id="editar" value="Editar" action="#{ConsultaBean.editarConsulta(emp)}"></h:commandButton>
+               </h:column>
+
             </h:dataTable>
-        </h:form>
+        </h:form>   
         
     </body>
 </html>
