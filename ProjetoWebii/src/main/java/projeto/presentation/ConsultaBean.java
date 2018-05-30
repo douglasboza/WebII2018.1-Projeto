@@ -174,11 +174,11 @@ public class ConsultaBean implements Serializable{
     }
     
     /**
-     * Mostra toda a tabela, caso nao tenha sido filtrado por um id ainda
+     * Determina o preenchimento da tabela, sendo ela completa ou filtrada por id_medico
      * @return 
      */
     public List<Consulta> mostraTabela(){
-        if(id_medico == 0)
+        if(this.consultaList.equals(null) || this.id_medico == 0) // Assumindo nunca que id_medico==0
             return getConsultaList();
         else
             return pesquisarPorId();

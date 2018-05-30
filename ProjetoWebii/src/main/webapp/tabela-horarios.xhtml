@@ -23,7 +23,6 @@ and open the template in the editor.
                 <h:inputText value="#{ConsultaBean.id_medico}"/>
             </h:panelGrid>
             <h:commandButton value="Pesquisar" action="#{ConsultaBean.pesquisarPorId()}"/>
-            <!-- TODO botao de pesquisar por id -->
         </h:form>
         
         <h:form>
@@ -35,7 +34,7 @@ and open the template in the editor.
             <h:dataTable value="#{ConsultaBean.mostraTabela()}" var="emp" border="1">
                 <p>Lista com as consultas do médico com id = 2</p>
                 <h:column>
-                    <f:facet name="header"> 
+                    <f:facet name="header">
                         <h:outputText value="id_consulta" />
                     </f:facet>
                     <h:outputText value="#{emp.id_consulta}" />
