@@ -33,14 +33,13 @@ public class ConsultaBean implements Serializable{
     private Date horaFim;
     private Date horaInicio;
     private int status = 1;
-    private int id_medico = 19; //médico com id 2 que está logado no sistema
+    private int id_medico; //= 19; médico com id 2 que está logado no sistema
     private int id_pessoa;
     private String motivoCancelamento;
     private int teste_editar;
     private Long id_consulta;
     private List<Consulta> consultaList = new ArrayList<>();
-
-  
+    
     public Consulta getConsulta() {
         return consulta;
     }
@@ -123,7 +122,7 @@ public class ConsultaBean implements Serializable{
     }
 
     public List<Consulta> getConsultaList() {
-        this.consultaList = consultadao.findConsultas(null);
+        this.consultaList = consultadao.findConsultas(null); //null
         return consultaList;
     }
 
@@ -164,5 +163,24 @@ public class ConsultaBean implements Serializable{
         System.out.println(id_pessoa);
     }
         
+    /**
+     * Mostra na tabela apenas as consultas de um medico em questao
+     * @return 
+     */
+    public List<Consulta> pesquisarPorId() {
+        Long id = Long.valueOf(id_medico);
+        this.consultaList = consultadao.findConsultas(id); //null
+        return consultaList;
+    }
     
+    /**
+     * Mostra toda a tabela, caso nao tenha sido filtrado por um id ainda
+     * @return 
+     */
+    public List<Consulta> mostraTabela(){
+        if(id_medico == 0)
+            return getConsultaList();
+        else
+            return pesquisarPorId();
+    }
 }

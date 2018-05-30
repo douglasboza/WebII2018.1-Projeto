@@ -1,63 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Cadastrar consulta</title>
+    <head>
+        <title>Tabela de horarios</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
+    </head>
     <body>
-        
-        #{ConsultaBean}
-        <br/>
         <h:link value="Home" outcome="index"/>
-        <br/>
-        <h:form> 
-            
+        
+        <h:form>
             <h:panelGrid columns="2" >               
-                <h:outputLabel value="Id medico"/> <!-- Assumindo que sao unicos -->
+                <h:outputLabel value="Id medico"/>
                 <h:inputText value="#{ConsultaBean.id_medico}"/>
             </h:panelGrid>
-            <h:panelGrid columns="2" >               
-                <p:outputLabel for="horaInicio" value="Hora inicio:" />
-                <p:calendar id="horaInicio" value="#{ConsultaBean.horaInicio}" pattern="MM/dd/yyyy HH:mm" />
-            </h:panelGrid>
-            <br></br>
-            <h:panelGrid columns="2" >               
-                <p:outputLabel for="horaFim" value="Hora fim:" />
-                <p:calendar id="horaFim" value="#{ConsultaBean.horaFim}" pattern="MM/dd/yyyy HH:mm" />
-            </h:panelGrid>
-            <br></br>
-       
-            <h:panelGrid columns="2" >
-               <h:outputLabel value="ObservaÃ§Ã£o"/>
-               <h:inputText value="#{ConsultaBean.motivoCancelamento}"/>
-            </h:panelGrid>
-            
-            <br></br>
-            
-        
-            
-            <h:inputHidden value="#{ConsultaBean.teste_editar}" id="hiddenteste" />
-            <h:inputHidden value="#{ConsultaBean.id_consulta}" id="hiddenId" />
-            
-            <h:commandButton value="Add Medico" action="#{ConsultaBean.addConsulta(ConsultaBean.teste_editar)}"/>    
-            
-           
-            
+            <h:commandButton value="Pesquisar" action="#{ConsultaBean.pesquisarPorId()}"/>
+            <!-- TODO botao de pesquisar por id -->
         </h:form>
-
+        
         <h:form>
             <p>Status</p>
-            <p>1 = DisponÃ­vel</p>
+            <p>1 = Disponível</p>
             <p>2 = Marcada</p>
             <p>3 = Cancelada</p>
             
-            <h:dataTable value="#{ConsultaBean.consultaList}" var="emp" border="1">
-                <p>Lista com as consultas do mÃ©dico com id = 2</p>
+            <h:dataTable value="#{ConsultaBean.mostraTabela()}" var="emp" border="1">
+                <p>Lista com as consultas do médico com id = 2</p>
                 <h:column>
                     <f:facet name="header"> 
                         <h:outputText value="id_consulta" />
@@ -102,7 +78,7 @@
                 
                 <h:column>
                     <f:facet name="header"> 
-                        <h:outputText value="Motivo cancelamento/observação" />
+                        <h:outputText value="Motivo cancelamento/observa��o" />
                     </f:facet>
                     <h:outputText value="#{emp.motivoCancelamento}" />
                 </h:column>
@@ -119,6 +95,5 @@
 
             </h:dataTable>
         </h:form>   
-        
     </body>
 </html>
