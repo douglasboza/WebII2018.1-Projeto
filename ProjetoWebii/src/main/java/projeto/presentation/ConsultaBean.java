@@ -175,7 +175,6 @@ public class ConsultaBean implements Serializable{
     
     /**
      * Determina o preenchimento da tabela, sendo ela completa ou filtrada por id_medico
-     * @return 
      */
     public List<Consulta> mostraTabela(){
         if(this.consultaList.equals(null) || this.id_medico == 0) // Assumindo nunca que id_medico==0
@@ -183,4 +182,31 @@ public class ConsultaBean implements Serializable{
         else
             return pesquisarPorId();
     }
+    
+    /**
+     * Alterar status da consulta para 2 (marcada)
+     */
+    public void marcarConsulta(Consulta consulta){
+        consulta.setStatus(2);
+        defaultdao.editarObjPessoa(consulta);
+//        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
+    }
+    
+    /**
+     * Alterar status da consulta para 3 (cancelada)
+     */
+    public void cancelarConsulta(Consulta consulta){
+        consulta.setStatus(3);
+        defaultdao.editarObjPessoa(consulta);
+    }
+    
+    /**
+     * Alterar status da consulta para 1 (disponivel)
+     * Apenas para TESTES
+     */
+    public void resetarConsulta(Consulta consulta){
+        consulta.setStatus(1);
+        defaultdao.editarObjPessoa(consulta);
+    }
+    
 }
