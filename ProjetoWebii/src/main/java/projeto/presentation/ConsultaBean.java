@@ -49,8 +49,9 @@ public class ConsultaBean implements Serializable{
         this.setHoraFim(con_editar.getHoraFim());
         this.setHoraInicio(con_editar.getHoraInicio());
         this.setMotivoCancelamento(con_editar.getMotivoCancelamento());
+        this.setId_medico(con_editar.getId_medico());
         this.consulta = con_editar;
-        System.out.println("teste="+this.consulta.getId_consulta());
+        System.out.println("teste id medico="+this.consulta.getId_medico());
     }
 
     public Date getHoraFim() {
@@ -84,6 +85,8 @@ public class ConsultaBean implements Serializable{
     }
 
     public void setId_medico(int id_medico) {
+        System.out.println("esitou o id medico "+id_medico);
+        this.consulta.setId_medico(id_medico);
         this.id_medico = id_medico;
     }
 
@@ -92,7 +95,9 @@ public class ConsultaBean implements Serializable{
     }
 
     public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+       this.consulta.setId_pessoa(id_pessoa);
+       this.id_pessoa = id_pessoa;
+       System.out.println("setou o idpessoa "+consulta.getId_pessoa());
     }
 
     public String getMotivoCancelamento() {
@@ -100,6 +105,7 @@ public class ConsultaBean implements Serializable{
     }
 
     public void setMotivoCancelamento(String motivoCancelamento) {
+        System.out.println(" o cancel "+id_medico);
         this.consulta.setMotivoCancelamento(motivoCancelamento);
         this.motivoCancelamento = motivoCancelamento;
     }
@@ -135,8 +141,8 @@ public class ConsultaBean implements Serializable{
         System.out.println("igual nome="+this.getConsulta());
         
         if(teste_editar == 1){
+            System.out.println("igual iiiiiii "+consulta.getId_medico());
             defaultdao.editarObjPessoa(this.consulta);
-            System.out.println("igual iii "+this.consulta.getId_consulta());
         }else{
             this.consulta.setId_medico(this.id_medico);
             this.consulta.setStatus(this.status);
@@ -155,7 +161,7 @@ public class ConsultaBean implements Serializable{
     public void editarConsulta(Consulta con_editar){
         this.setConsulta(con_editar);
         this.setTeste_editar(1);
-        System.out.println("igual bbbb " +this.getId_consulta());
+        System.out.println("igual bbbb " +this.getId_medico());
     }     
     
     public void selecionarMedico(Long id_pessoa){
@@ -187,7 +193,9 @@ public class ConsultaBean implements Serializable{
      * Alterar status da consulta para 2 (marcada)
      */
     public void marcarConsulta(Consulta consulta){
-        consulta.setStatus(2);
+        this.consulta.setStatus(2);
+        consulta.setId_pessoa(this.getId_pessoa());
+
         defaultdao.editarObjPessoa(consulta);
 //        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
     }

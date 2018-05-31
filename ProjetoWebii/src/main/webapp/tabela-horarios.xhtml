@@ -31,6 +31,11 @@ and open the template in the editor.
             <p>2 = Marcada</p>
             <p>3 = Cancelada</p>
             
+            <h:panelGrid columns="2" >               
+                <h:outputLabel value="Id paciente"/>
+                <h:inputText value="#{ConsultaBean.id_pessoa}"/>
+            </h:panelGrid>
+            
             <h:dataTable value="#{ConsultaBean.mostraTabela()}" var="emp" border="1">
                 <p>Lista com as consultas do m√©dico com id = 2</p>
                 <h:column>
@@ -77,7 +82,7 @@ and open the template in the editor.
                 
                 <h:column>
                     <f:facet name="header"> 
-                        <h:outputText value="Motivo cancelamento/observaÁ„o" />
+                        <h:outputText value="Motivo cancelamento/observaÔøΩÔøΩo" />
                     </f:facet>
                     <h:outputText value="#{emp.motivoCancelamento}" />
                 </h:column>

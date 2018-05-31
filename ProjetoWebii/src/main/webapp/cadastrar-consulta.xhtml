@@ -18,13 +18,16 @@
         <h:form> 
             
             <h:panelGrid columns="2" >               
-                <h:outputLabel value="Id medico"/> <!-- Assumindo que sao unicos -->
-                <h:inputText value="#{ConsultaBean.id_medico}"/>
+                <h:outputLabel for="id_medico" value="Id medico"/>
+                <h:inputText id="id_medico" value="#{ConsultaBean.id_medico}"/>
             </h:panelGrid>
+            
+            <br></br>
             <h:panelGrid columns="2" >               
                 <p:outputLabel for="horaInicio" value="Hora inicio:" />
                 <p:calendar id="horaInicio" value="#{ConsultaBean.horaInicio}" pattern="MM/dd/yyyy HH:mm" />
             </h:panelGrid>
+            
             <br></br>
             <h:panelGrid columns="2" >               
                 <p:outputLabel for="horaFim" value="Hora fim:" />
