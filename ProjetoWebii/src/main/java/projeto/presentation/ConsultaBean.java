@@ -193,7 +193,7 @@ public class ConsultaBean implements Serializable{
      * Alterar status da consulta para 2 (marcada)
      */
     public void marcarConsulta(Consulta consulta){
-        this.consulta.setStatus(2);
+        consulta.setStatus(2);
         consulta.setId_pessoa(this.getId_pessoa());
 
         defaultdao.editarObjPessoa(consulta);
