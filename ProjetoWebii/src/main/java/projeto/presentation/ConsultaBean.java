@@ -205,6 +205,7 @@ public class ConsultaBean implements Serializable{
      */
     public void cancelarConsulta(Consulta consulta){
         consulta.setStatus(3);
+        consulta.setId_pessoa(0);
         defaultdao.editarObjPessoa(consulta);
     }
     
@@ -214,6 +215,7 @@ public class ConsultaBean implements Serializable{
      */
     public void resetarConsulta(Consulta consulta){
         consulta.setStatus(1);
+        consulta.setId_pessoa(0);
         defaultdao.editarObjPessoa(consulta);
     }
     
