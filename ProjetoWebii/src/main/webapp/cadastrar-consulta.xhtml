@@ -47,7 +47,7 @@
             <h:inputHidden value="#{ConsultaBean.teste_editar}" id="hiddenteste" />
             <h:inputHidden value="#{ConsultaBean.id_consulta}" id="hiddenId" />
             
-            <h:commandButton value="Add Medico" action="#{ConsultaBean.addConsulta(ConsultaBean.teste_editar)}"/>    
+            <h:commandButton value="Add Medico" action="#{FacadeBean.addConsulta(ConsultaBean.teste_editar)}"/>    
             
            
             
@@ -113,11 +113,11 @@
                 <h:column>
                     <h:commandButton id="submit" 
                     value="Remover" 
-                    action="#{ConsultaBean.excluirConsulta(emp.id_consulta)}"></h:commandButton>
+                    action="#{FacadeBean.excluirConsulta(emp.id_consulta)}"></h:commandButton>
                 </h:column>
                            
                 <h:column>
-                  <h:commandButton id="editar" value="Editar" action="#{ConsultaBean.editarConsulta(emp)}"></h:commandButton>
+                  <h:commandButton id="editar" value="Editar" action="#{FacadeBean.editarConsulta(emp)}"></h:commandButton>
                </h:column>
 
             </h:dataTable>

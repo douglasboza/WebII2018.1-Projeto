@@ -51,7 +51,7 @@
             <h:inputHidden value="#{pacienteBean.id_pessoa}" id="hiddenId" />
             
             
-            <h:commandButton value="Adicionar paciente" action="#{pacienteBean.addPaciente(pacienteBean.teste_editar)}"/>            
+            <h:commandButton value="Adicionar paciente" action="#{FacadeBean.addPaciente(pacienteBean.teste_editar)}"/>            
         </h:form>
 
         <h:form>  
@@ -90,11 +90,11 @@
                 <h:column>
                         <h:commandButton id="submit" 
                         value="Remover" 
-                        action="#{pacienteBean.excluirPaciente(emp.id_pessoa)}"></h:commandButton>
+                        action="#{FacadeBean.excluirPaciente(emp.id_pessoa)}"></h:commandButton>
                 </h:column>
 
                 <h:column>
-                      <h:commandButton id="editar" value="Editar" action="#{pacienteBean.editarPaciente(emp)}"></h:commandButton>
+                      <h:commandButton id="editar" value="Editar" action="#{FacadeBean.editarPaciente(emp)}"></h:commandButton>
                 </h:column>
 
             </h:dataTable>

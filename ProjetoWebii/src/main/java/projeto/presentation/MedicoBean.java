@@ -202,10 +202,10 @@ public class MedicoBean implements Serializable{
         System.out.println("igual nome="+this.getMedico());
         
         if(teste_editar == 1){
-            defaultdao.editarObjPessoa(medico);
+            defaultdao.editarObj(medico);
             System.out.println("igual iii "+medico.getId_pessoa());
         }else{
-            defaultdao.addNewObjPessoa(this.medico);
+            defaultdao.addNewObj(this.medico);
             System.out.println("igual uuu "+this.medico.getId_pessoa());
         }
       

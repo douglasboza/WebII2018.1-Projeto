@@ -34,7 +34,7 @@ public class DefaultDAO {
 	private UserTransaction userTransaction;
         
 
-	public Object addNewObjPessoa(Object object) {
+	public Object addNewObj(Object object) {
 //            System.out.println("id do medico="+object.getId_pessoa());
             try {
                 userTransaction.begin();
@@ -61,7 +61,7 @@ public class DefaultDAO {
             }
         }
         
-        public Object editarObjPessoa(Object obj) {
+        public Object editarObj(Object obj) {
                 try {
 			userTransaction.begin();
 			entityManager.merge(obj);

@@ -137,32 +137,32 @@ public class ConsultaBean implements Serializable{
         this.consultaList = consultadao.findConsultas(id_pessoa);
     }
     
-    public void addConsulta(int teste_editar) {
-        System.out.println("igual nome="+this.getConsulta());
-        
-        if(teste_editar == 1){
-            System.out.println("igual iiiiiii "+consulta.getId_medico());
-            defaultdao.editarObjPessoa(this.consulta);
-        }else{
-            this.consulta.setId_medico(this.id_medico);
-            this.consulta.setStatus(this.status);
-            defaultdao.addNewObjPessoa(this.consulta);
-            System.out.println("igual uuu "+this.consulta.getId_consulta());
-        }
-      
-    }
+//    public void addConsulta(int teste_editar) {
+//        System.out.println("igual nome="+this.getConsulta());
+//        
+//        if(teste_editar == 1){
+//            System.out.println("igual iiiiiii "+consulta.getId_medico());
+//            defaultdao.editarObj(this.consulta);
+//        }else{
+//            this.consulta.setId_medico(this.id_medico);
+//            this.consulta.setStatus(this.status);
+//            defaultdao.addNewObj(this.consulta);
+//            System.out.println("igual uuu "+this.consulta.getId_consulta());
+//        }
+//      
+//    }
     
-    public void excluirConsulta(int id_rem1){
-        Long id_rem = Long.valueOf(id_rem1);
-        System.out.println("igual aaaa " +id_rem);
-        defaultdao.removerObj(id_rem,"Consulta", "id_consulta");
-    }
-    
-    public void editarConsulta(Consulta con_editar){
-        this.setConsulta(con_editar);
-        this.setTeste_editar(1);
-        System.out.println("igual bbbb " +this.getId_medico());
-    }     
+//    public void excluirConsulta(int id_rem1){
+//        Long id_rem = Long.valueOf(id_rem1);
+//        System.out.println("igual aaaa " +id_rem);
+//        defaultdao.removerObj(id_rem,"Consulta", "id_consulta");
+//    }
+//    
+//    public void editarConsulta(Consulta con_editar){
+//        this.setConsulta(con_editar);
+//        this.setTeste_editar(1);
+//        System.out.println("igual bbbb " +this.getId_medico());
+//    }     
     
     public void selecionarMedico(Long id_pessoa){
         this.setConsultaList(id_pessoa);
@@ -196,7 +196,7 @@ public class ConsultaBean implements Serializable{
         consulta.setStatus(2);
         consulta.setId_pessoa(this.getId_pessoa());
 
-        defaultdao.editarObjPessoa(consulta);
+        defaultdao.editarObj(consulta);
 //        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
     }
     
@@ -206,17 +206,17 @@ public class ConsultaBean implements Serializable{
     public void cancelarConsulta(Consulta consulta){
         consulta.setStatus(3);
         consulta.setId_pessoa(0);
-        defaultdao.editarObjPessoa(consulta);
+        defaultdao.editarObj(consulta);
     }
     
     /**
      * Alterar status da consulta para 1 (disponivel)
      * Apenas para TESTES
      */
-    public void resetarConsulta(Consulta consulta){
-        consulta.setStatus(1);
-        consulta.setId_pessoa(0);
-        defaultdao.editarObjPessoa(consulta);
-    }
+//    public void resetarConsulta(Consulta consulta){;
+//        consulta.setStatus(1);
+//        consulta.setId_pessoa(0);
+//        defaultdao.editarObj(consulta);
+//    };
     
 }

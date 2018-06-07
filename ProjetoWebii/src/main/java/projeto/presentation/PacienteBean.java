@@ -48,7 +48,7 @@ public class PacienteBean implements Serializable{
     
     private List<Paciente> pacienteList = new ArrayList<>();
     
-    private PacienteBean(){
+    protected PacienteBean(){
         System.out.println("setou comopaciente antes"+ this.paciente.getId_pessoa());
 
     }
@@ -144,37 +144,6 @@ public class PacienteBean implements Serializable{
         this.planosPac = planosPac;
     }    
         
-    
-        
-    public void excluirPaciente(int id_rem1){
-        Long id_rem = Long.valueOf(id_rem1);
-        System.out.println("igual aaaa " +id_rem);
-        defaultdao.removerObj(id_rem, "Paciente", "id_pessoa");
-    }
-        
-    public void editarPaciente(Paciente pac_editar){
-        this.setPaciente(pac_editar);
-        this.setTeste_editar(1);
-        System.out.println("igual bbbb " +this.getPaciente());
-//      
-    }   
-
-    public void addPaciente(int teste_editar) {
-        System.out.println("chegou 2");
-        System.out.println("chegou ="+this.paciente);
-        System.out.println("igual nome="+this.getPaciente());
-        
-        if(teste_editar == 1){
-            defaultdao.editarObjPessoa(paciente);
-            System.out.println("igual iii "+paciente.getId_pessoa());
-        }else{
-            defaultdao.addNewObjPessoa(this.paciente);
-            System.out.println("igual uuu "+this.paciente.getId_pessoa());
-        }
-      
-    }
-    
-        
     public Paciente getPaciente() {
         return this.paciente;
     }
@@ -187,6 +156,37 @@ public class PacienteBean implements Serializable{
         this.setId_pessoa(pac_editar.getId_pessoa());
         this.paciente = pac_editar;
     }
+        
+//    public void excluirPaciente(int id_rem1){
+//        Long id_rem = Long.valueOf(id_rem1);
+//        System.out.println("igual aaaa " +id_rem);
+//        defaultdao.removerObj(id_rem, "Paciente", "id_pessoa");
+//    }
+//        
+//    public void editarPaciente(Paciente pac_editar){
+//        this.setPaciente(pac_editar);
+//        this.setTeste_editar(1);
+//        System.out.println("igual bbbb " +this.getPaciente());
+//      
+//    }   
+
+//    public void addPaciente(int teste_editar) {
+//        System.out.println("chegou 2");
+//        System.out.println("chegou ="+this.paciente);
+//        System.out.println("igual nome="+this.getPaciente());
+//        
+//        if(teste_editar == 1){
+//            defaultdao.editarObjPessoa(paciente);
+//            System.out.println("igual iii "+paciente.getId_pessoa());
+//        }else{
+//            defaultdao.addNewObjPessoa(this.paciente);
+//            System.out.println("igual uuu "+this.paciente.getId_pessoa());
+//        }
+//      
+//    }
+    
+        
+
 //    
     
 }
