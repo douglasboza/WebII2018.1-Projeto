@@ -6,6 +6,7 @@
 package projeto.presentation;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -60,15 +61,12 @@ public class FacadeBean implements Serializable{
         pacientebean.setTeste_editar(1);
     }  
    // consulta
-    
     public void addConsulta(int teste_editar) {
         
         if(teste_editar == 1){
             defaultdao.editarObj(consultabean.getConsulta());
         }else{
-//            this.consulta.setId_medico(this.id_medico);
-//            this.consulta.setStatus(this.status);
-            defaultdao.addNewObj(consultabean.getConsulta());
+          defaultdao.addNewObj(consultabean.getConsulta());
         }
       
     }
@@ -88,5 +86,49 @@ public class FacadeBean implements Serializable{
         defaultdao.editarObj(consulta);
     };
     
+    public void selecionarMedico(Long id_pessoa){
+        setConsultaList(id_pessoa);
+        System.out.println(id_pessoa);
+    }
+        
+
+    public List<Consulta> pesquisarPorId(){
+        Long id = Long.valueOf(consultabean.getId_medico());
+        consultabean.setConsultaList(consultadao.findConsultas(id));
+        
+        return consultadao.findConsultas(id);
+    }
+    
+    public List<Consulta> mostraTabela(){
+        if(consultabean.getConsultaList().equals(null) || consultabean.getId_medico() == 0) {
+             System.out.println("aqui1");
+             consultabean.setConsultaList(consultadao.findConsultas(null));
+            return consultabean.getConsultaList();
+        }else{           
+             System.out.println("aqui2");
+            return pesquisarPorId();
+        }
+    }
+    
+    public void setConsultaList(Long id_pessoa) {
+        System.out.println("passou aqui 123");
+        consultabean.setConsultaList(consultadao.findConsultas(id_pessoa));
+    }
+    
+    
+    public void marcarConsulta(Consulta consulta){
+        consulta.setStatus(2);
+        consulta.setId_pessoa(consultabean.getId_pessoa());
+
+        defaultdao.editarObj(consulta);
+//        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
+    }
+    
+    public void cancelarConsulta(Consulta consulta){
+        consulta.setStatus(3);
+        consulta.setId_pessoa(0);
+        defaultdao.editarObj(consulta);
+    }
+
    // fim consulta
 }

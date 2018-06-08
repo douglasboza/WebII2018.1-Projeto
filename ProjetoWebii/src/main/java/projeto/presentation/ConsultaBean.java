@@ -128,13 +128,13 @@ public class ConsultaBean implements Serializable{
     }
 
     public List<Consulta> getConsultaList() {
-        this.consultaList = consultadao.findConsultas(null); //null
-        return consultaList;
+//        this.consultaList = consultadao.findConsultas(null); //null
+        return this.consultaList;
     }
 
-    public void setConsultaList(Long id_pessoa) {
-        System.out.println("passou aqui 123");
-        this.consultaList = consultadao.findConsultas(id_pessoa);
+
+    public void setConsultaList(List consultaList) {
+        this.consultaList = consultaList;
     }
     
 //    public void addConsulta(int teste_editar) {
@@ -164,50 +164,50 @@ public class ConsultaBean implements Serializable{
 //        System.out.println("igual bbbb " +this.getId_medico());
 //    }     
     
-    public void selecionarMedico(Long id_pessoa){
-        this.setConsultaList(id_pessoa);
-        System.out.println(id_pessoa);
-    }
-        
-    /**
-     * Mostra na tabela apenas as consultas de um medico em questao
-     * @return 
-     */
-    public List<Consulta> pesquisarPorId() {
-        Long id = Long.valueOf(id_medico);
-        this.consultaList = consultadao.findConsultas(id); //null
-        return consultaList;
-    }
-    
-    /**
-     * Determina o preenchimento da tabela, sendo ela completa ou filtrada por id_medico
-     */
-    public List<Consulta> mostraTabela(){
-        if(this.consultaList.equals(null) || this.id_medico == 0) // Assumindo nunca que id_medico==0
-            return getConsultaList();
-        else
-            return pesquisarPorId();
-    }
-    
-    /**
-     * Alterar status da consulta para 2 (marcada)
-     */
-    public void marcarConsulta(Consulta consulta){
-        consulta.setStatus(2);
-        consulta.setId_pessoa(this.getId_pessoa());
-
-        defaultdao.editarObj(consulta);
-//        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
-    }
-    
-    /**
-     * Alterar status da consulta para 3 (cancelada)
-     */
-    public void cancelarConsulta(Consulta consulta){
-        consulta.setStatus(3);
-        consulta.setId_pessoa(0);
-        defaultdao.editarObj(consulta);
-    }
+//    public void selecionarMedico(Long id_pessoa){
+//        this.setConsultaList(id_pessoa);
+//        System.out.println(id_pessoa);
+//    }
+//        
+//    /**
+//     * Mostra na tabela apenas as consultas de um medico em questao
+//     * @return 
+//     */
+//    public List<Consulta> pesquisarPorId() {
+//        Long id = Long.valueOf(id_medico);
+//        this.consultaList = consultadao.findConsultas(id); //null
+//        return consultaList;
+//    }
+//    
+//    /**
+//     * Determina o preenchimento da tabela, sendo ela completa ou filtrada por id_medico
+//     */
+//    public List<Consulta> mostraTabela(){
+//        if(this.consultaList.equals(null) || this.id_medico == 0) // Assumindo nunca que id_medico==0
+//            return getConsultaList();
+//        else
+//            return pesquisarPorId();
+//    }
+//    
+//    /**
+//     * Alterar status da consulta para 2 (marcada)
+//     */
+//    public void marcarConsulta(Consulta consulta){
+//        consulta.setStatus(2);
+//        consulta.setId_pessoa(this.getId_pessoa());
+//
+//        defaultdao.editarObj(consulta);
+////        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
+//    }
+//    
+//    /**
+//     * Alterar status da consulta para 3 (cancelada)
+//     */
+//    public void cancelarConsulta(Consulta consulta){
+//        consulta.setStatus(3);
+//        consulta.setId_pessoa(0);
+//        defaultdao.editarObj(consulta);
+//    };
     
     /**
      * Alterar status da consulta para 1 (disponivel)
