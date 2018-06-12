@@ -191,12 +191,7 @@ public class MedicoBean implements Serializable{
         defaultdao.removerObj(id_rem, "Medico", "id_pessoa");
     }
         
-    public void editarMedico(Medico med_editar){
-        this.setMedico(med_editar);
-        this.setTeste_editar(1);
-        System.out.println("igual bbbb " +this.getMedico());
-//      
-    }   
+
 
     public void addMedico(int teste_editar) {
         System.out.println("igual nome="+this.getMedico());
@@ -225,6 +220,12 @@ public class MedicoBean implements Serializable{
 //        this.setPlanosRecebidos(med_editar.getPlanosRecebibos());
         this.setRegistroProfi(med_editar.getRegistroProfi());
         this.setId_pessoa(med_editar.getId_pessoa());
+        String auxArea = "";
+        for (String s : med_editar.getAreaAtuacao()){
+            auxArea += s+";";
+        }
+        System.out.println("Area de atuacao = "+auxArea);
+        this.setStringAreaAtuacao(auxArea);
         this.medico = med_editar;
     }
         

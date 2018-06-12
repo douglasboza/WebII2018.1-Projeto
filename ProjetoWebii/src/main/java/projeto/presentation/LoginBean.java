@@ -20,11 +20,14 @@ import projeto.dominio.Paciente;
  *
  * @author kuro_
  */
-@Named(value = "Login")
+@Named(value = "LoginBean")
 @RequestScoped
 public class LoginBean implements Serializable{
+      boolean is_logged = true;
+      int id_pessoa = 35;
+      int tipo_pessoa = 1; // 1=médico e 2=pessoa  
 //    @Inject MedicoDAO medicodao;
-//    @Inject PacienteBean pacientedao;
+//     @Inject MedicoBean medicodao;
 //    @Inject DefaultDAO defaultdao;
 //    
 //    private String tempEmail;
@@ -33,9 +36,34 @@ public class LoginBean implements Serializable{
 //    private List<Medico> listaMedicos = new ArrayList<>();
 //    private List<Paciente> listaPacientes = new ArrayList<>();
 //    
-//    public LoginBean(){
-//        
-//    }
+    public LoginBean(){
+        
+    }
+    public boolean isIs_logged() {
+        return is_logged;
+    }
+
+    public void setIs_logged(boolean is_logged) {
+        this.is_logged = is_logged;
+    }
+
+    public int getTipo_pessoa() {
+        return tipo_pessoa;
+    }
+
+    public void setTipo_pessoa(int tipo_pessoa) {
+        this.tipo_pessoa = tipo_pessoa;
+    }
+    public int getId_pessoa() {
+        return id_pessoa;
+    }
+
+    public void setId_pessoa(int id_pessoa) {
+        this.id_pessoa = id_pessoa;
+    }
+    
+
+    
 //
 //    public String getTempEmail() {
 //        return tempEmail;
@@ -71,4 +99,8 @@ public class LoginBean implements Serializable{
 //    public void logPaciente(){
 //        
 //    }
+
+
+
+  
 }

@@ -13,8 +13,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import projeto.data.ConsultaDAO;
 import projeto.data.DefaultDAO;
+import projeto.data.MedicoDAO;
 import projeto.data.PacienteDAO;
 import projeto.dominio.Consulta;
+import projeto.dominio.Medico;
 import projeto.dominio.Paciente;
 
 
@@ -33,14 +35,23 @@ public class FacadeBean implements Serializable{
     @Inject PacienteDAO pacientedao;
     @Inject DefaultDAO defaultdao;
     @Inject ConsultaDAO consultadao;
+    @Inject MedicoDAO medicodao;
     
     @Inject PacienteBean pacientebean;
+    @Inject MedicoBean medicobean;
     @Inject ConsultaBean consultabean;
+    
+    @Inject LoginBean loginbean;
     
     private FacadeBean(){
         System.out.println("passou no facade");
     }
     
+    // paciente
+    
+    public Paciente getPaciente(Long id_pessoa){
+        return this.pacientedao.getPaciente(id_pessoa).get(0);
+    }
     
     public void addPaciente(int teste_editar){
         System.out.println("passou no addpaciente facade");
@@ -51,7 +62,7 @@ public class FacadeBean implements Serializable{
         }
     }
    
-    public void excluirPaciente(int id_pessoa){
+    public void excluirPaciente(Long id_pessoa){
         Long id_rem = Long.valueOf(id_pessoa);
         defaultdao.removerObj(id_rem, "Paciente", "id_pessoa");
     }
@@ -60,6 +71,8 @@ public class FacadeBean implements Serializable{
         pacientebean.setPaciente(emp);
         pacientebean.setTeste_editar(1);
     }  
+   // fim paciente
+    
    // consulta
     public void addConsulta(int teste_editar) {
         
@@ -129,6 +142,35 @@ public class FacadeBean implements Serializable{
         consulta.setId_pessoa(0);
         defaultdao.editarObj(consulta);
     }
-
+    
    // fim consulta
+    
+    
+   // editar perfil
+    
+    public void setData(){
+        Long id_pessoa = Long.valueOf(this.loginbean.id_pessoa);
+        if(this.loginbean.tipo_pessoa == 2){
+            this.editarPaciente(this.getPaciente(id_pessoa));
+        }else{
+            this.editarMedico(this.getMedico(id_pessoa));
+        }
+    }
+        
+   // fim editar perfil
+   
+    
+    // médico
+    public void editarMedico(Medico med_editar){
+        medicobean.setMedico(med_editar);
+        medicobean.setTeste_editar(1);
+        System.out.println("igual bbbb " +medicobean.getMedico());
+    }   
+    public Medico getMedico(Long id_pessoa){
+        return this.medicodao.getMedico(id_pessoa).get(0);
+    }
+    
+    // fim médico
+    
+    
 }
