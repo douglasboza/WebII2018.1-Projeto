@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Marcar consulta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <!-- TODO Tabela de agenda do medico; Clicar nos horarios livres; Consultar Medico.Consulta.horaInicio/horaFim -->
+        <!-- (?) Mudar horaInicio/Fim pra string; "padrao de horarios" (e.g. 30min), entao nao precisa de horaFim -->
+        <!-- Montar tabela lendo listaConsulta do medicoBean; -->
+        
+        <h:link value="Home" outcome="index"/>
+        
+        <!-- Agenda (tabela); Pressupondo que usuario esta logado -->
+        <h:form>
+            <h:dataTable value="#{medicoBean.medicoList}" var="emp" border="1">
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText value="#{emp.nome}" />
+                            
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Id m�dico" />
+                            </f:facet>
+                            <h:outputText value="#{emp.id_pessoa}" />
+                            
+                </h:column>
+                <h:column>
+                            <f:facet name="header">
+                                    <h:outputText value="registro pro" />
+                            </f:facet>
+                            <h:outputText value="#{emp.registroProfi}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Email" />
+                            </f:facet>
+                            <h:outputText value="#{emp.email}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Telefone" />
+                            </f:facet>
+                            <h:outputText value="#{emp.telefone}" />
+                </h:column>
+                <h:column>
+                            <f:facet name="header"> 
+                                <h:outputText value="Area de atuacao" />
+                            </f:facet>
+                            <h:outputText value="#{emp.areaAtuacao}" />
+                </h:column>
+                <h:column>
+                    <h:commandButton id="submit" 
+                    value="Selecionar" 
+                    action="#{ConsultaBean.selecionarMedico(emp.id_pessoa)}"></h:commandButton>
+                </h:column>
+                          
+
+            </h:dataTable>
+        </h:form>   
+        <h:form>
+            <p>Status</p>
+            <p>1 = Dispon�vel</p>
+            <p>2 = Marcada</p>
+            <p>3 = Cancelada</p>
+            
+            <h:dataTable value="#{FacadeBean.listarConsultas}" var="emp" border="1">
+                <p>Lista com as consultas do m�dico com id = 2</p>
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="id_consulta" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_consulta}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="id_medico" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_medico}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="id_pessoa" />
+                    </f:facet>
+                    <h:outputText value="#{emp.id_pessoa}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Status" />
+                    </f:facet>
+                    <h:outputText value="#{emp.status}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Hora fim" />
+                    </f:facet>
+                    <h:outputText value="#{emp.horaInicio}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Hora fim" />
+                    </f:facet>
+                    <h:outputText value="#{emp.horaFim}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> 
+                        <h:outputText value="Motivo cancelamento/Observa��o" />
+                    </f:facet>
+                    <h:outputText value="#{emp.motivoCancelamento}" />
+                </h:column>
+                
+                <h:column>
+                    <h:commandButton id="submit" 
+                    value="Remover" 
+                    action="#{ConsultaBean.excluirConsulta(emp.id_consulta)}"></h:commandButton>
+                </h:column>
+                           
+                <h:column>
+                  <h:commandButton id="editar" value="Editar" action="#{ConsultaBean.editarConsulta(emp)}"></h:commandButton>
+               </h:column>
+
+            </h:dataTable>
+        </h:form>   
+        
+    </body>
+</html>
