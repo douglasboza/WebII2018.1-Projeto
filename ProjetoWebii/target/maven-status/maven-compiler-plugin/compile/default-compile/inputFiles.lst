@@ -1,31 +1,20 @@
-<<<<<<< HEAD
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Medico.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Consulta.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Pessoa.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Paciente.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\medicoDAO.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\pessoaDAO.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\EmployeeMB.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\pessoaBean.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Employee.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\medicoBean.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\EmployeeDAO.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Endereco.java
-E:\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Plano.java
-=======
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Endereco.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/data/pessoaDAO.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Pessoa.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/presentation/pessoaBean.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/presentation/pacienteBean.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Medico.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/presentation/medicoBean.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Paciente.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Plano.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/data/EmployeeDAO.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Consulta.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/data/pacienteDAO.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/data/medicoDAO.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/dominio/Employee.java
-/home/douglasboza/NetBeansProjects/WebII2018.1-Projeto/ProjetoWebii/src/main/java/projeto/presentation/EmployeeMB.java
->>>>>>> 145e4634da6d276f03860adcaf93f8b406bf609b
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Employee.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\EmployeeMB.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Paciente.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\LoginBean.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\DefaultDAO.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\FacadeBean.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\pessoaBean.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Medico.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Pessoa.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Plano.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\ConsultaBean.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Consulta.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\MedicoBean.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\dominio\Endereco.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\PessoaDAO.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\presentation\PacienteBean.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\ConsultaDAO.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\MedicoDAO.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\PacienteDAO.java
+C:\Users\kuro_\OneDrive\Documentos\Git clones\WebII2018.1-Projeto\ProjetoWebii\src\main\java\projeto\data\EmployeeDAO.java

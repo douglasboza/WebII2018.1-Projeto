@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"> 
+    <h:head>
+        <title>Editar conta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+       
+        <ui:fragment rendered="#{LoginBean.is_logged == true}">
+            #{FacadeBean.setData()}
+            <ui:fragment rendered="#{LoginBean.tipo_pessoa == 1}">
+                <h1>Editar perfil médico</h1>
+                   
+                    <h:form > 
+                       <h:panelGrid columns="2" >
+                          <h:outputLabel value="Nome"/>
+                          <h:inputText value="#{medicoBean.nome}"/>       
+                       </h:panelGrid>
+
+                       <br></br>
+                       <h:panelGrid columns="2" >
+                          <h:outputLabel value="Registro profissional"/>
+                          <h:inputText value="#{medicoBean.registroProfi}"/>          
+                       </h:panelGrid>
+
+                       <br></br>
+
+                       <h:panelGrid columns="2" >
+                          <h:outputLabel value="Telefone"/>
+                          <h:inputText value="#{medicoBean.telefone}"/>
+                       </h:panelGrid>
+
+                       <br></br>
+
+                       <h:panelGrid columns="2" >
+                          <h:outputLabel value="Email"/>
+                          <h:inputText value="#{medicoBean.email}"/>
+                       </h:panelGrid>
+
+                       <br></br>
+
+                       <h:panelGrid columns="2" >
+                          <h:outputLabel value="CPF"/>
+                          <h:inputText value="#{medicoBean.cpf}"/>
+                       </h:panelGrid>
+                       <br></br>
+
+                        <h:panelGrid columns="2" >
+                          <h:outputLabel value="Areas de atuacao, separe com ;"/>
+                          <h:inputText value="#{medicoBean.stringAreaAtuacao}"/>
+                       </h:panelGrid>
+
+                       <h:inputHidden value="#{medicoBean.teste_editar}" id="hiddenteste" />
+                       <h:inputHidden value="#{medicoBean.id_pessoa}" id="hiddenId" />
+
+                       <h:commandButton value="Salvar" action="#{medicoBean.addMedico(medicoBean.teste_editar)}"/>    
+
+                    </h:form>
+               
+                
+            </ui:fragment>
+            
+            <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
+                <h1>Editar perfil do paciente</h1>
+                    <h:form> 
+                        <h:panelGrid columns="2" >
+                           <h:outputLabel value="Nome"/>
+                           <h:inputText value="#{pacienteBean.nome}"/>          
+                        </h:panelGrid>
+
+                        <br></br>
+
+                        <h:panelGrid columns="2" >
+                           <h:outputLabel value="Telefone"/>
+                           <h:inputText value="#{pacienteBean.telefone}"/>
+                        </h:panelGrid>
+
+                        <br></br>
+
+                        <h:panelGrid columns="2" >
+                           <h:outputLabel value="Email"/>
+                           <h:inputText value="#{pacienteBean.email}"/>
+                        </h:panelGrid>
+
+                        <br></br>
+
+                        <h:panelGrid columns="2" >
+                           <h:outputLabel value="CPF"/>
+                           <h:inputText value="#{pacienteBean.cpf}"/>
+                        </h:panelGrid>
+                        <br></br>
+
+            <!--             <h:panelGrid columns="2" >
+                           <h:outputLabel value="Endereco"/>
+                           <h:inputText value="{pacienteBean.enderecoPac}"/>
+                        </h:panelGrid>-->
+
+                        <h:inputHidden value="#{pacienteBean.teste_editar}" id="hiddenteste" />
+                        <h:inputHidden value="#{pacienteBean.id_pessoa}" id="hiddenId" />
+
+
+                        <h:commandButton value="Salvar" action="#{FacadeBean.addPaciente(pacienteBean.teste_editar)}"/>            
+                    </h:form>
+                
+            </ui:fragment>
+            
+        </ui:fragment>
+        
+
+
+            
+
+    </body>
+</html>

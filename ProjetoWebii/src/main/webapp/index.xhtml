@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -10,74 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        #{pessoaBean}
-        <div>TODO write content</div>
-            
-        <h:form>
-            <h:panelGrid columns="2" >
-
-               <h:outputLabel value="Nome : "/>
-                <h:inputText value="#{pessoaBean.nome}"/>
-
-            </h:panelGrid>
-
-          <h:commandButton value="Add usuario" action="#{pessoaBean.addPessoa}"/>            
-       </h:form>
         
         
-        <h:dataTable value="#{pessoaBean.pessoaList}" var="emp" border="1">
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Name" />
-			</f:facet>
-			<h:outputText value="#{emp.nome}" />
-		</h:column>
-	</h:dataTable>
-        
-        <h:link value="Cadastrar médico" outcome="novo-medico"/> <br/>
+        <h:link value="Cadastrar medico" outcome="novo-medico"/> <br/>
         <h:link value="Cadastrar paciente" outcome="novo-paciente"/> <br/>
+        <h:link value="Marcar consulta" outcome="marcar-consulta"/> <br/>
+        <h:link value="Cadastrar consulta" outcome="cadastrar-consulta"/> <br/>
+        <h:link value="Tabela de horarios cadastrados" outcome="tabela-horarios"/> <br/>
+        <h:link value="Login" outcome="login"/> <br/>
+        <h:link value="Home medico" outcome="home"/> <br/>
 
     </body>
 </html>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
-    <head>
-        <title>Index</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        #{pessoaBean}
-        <div>TODO write content</div>
-            
-        <h:form>
-            <h:panelGrid columns="2" >
-
-               <h:outputLabel value="Nome : "/>
-                <h:inputText value="#{pessoaBean.nome}"/>
-
-            </h:panelGrid>
-
-          <h:commandButton value="Add usuario" action="#{pessoaBean.addPessoa}"/>            
-       </h:form>
-        
-        
-        <h:dataTable value="#{pessoaBean.pessoaList}" var="emp" border="1">
-		<h:column>
-			<f:facet name="header">
-				<h:outputText value="Name" />
-			</f:facet>
-			<h:outputText value="#{emp.nome}" />
-		</h:column>
-	</h:dataTable>
-        
-        <h:link value="Cadastrar médico" outcome="novo-medico"/> <br/>
-        <h:link value="Cadastrar paciente" outcome="novo-paciente"/> <br/>
-
-    </body>
-</html>
->>>>>>> 145e4634da6d276f03860adcaf93f8b406bf609b

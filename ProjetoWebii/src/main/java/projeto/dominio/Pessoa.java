@@ -29,6 +29,7 @@ public class Pessoa implements Serializable{
     String telefone;
     String cpf;
     String email;
+    String senha;
 
 //    @Id
 //    @GeneratedValue(strategy=GenerationType.IDENTITY,generator="SEQ_PESSOA")
@@ -80,6 +81,13 @@ public class Pessoa implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
 }

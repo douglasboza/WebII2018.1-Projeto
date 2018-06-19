@@ -13,7 +13,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import projeto.data.pessoaDAO;
+import projeto.data.PessoaDAO;
 import projeto.dominio.Pessoa;
 
 
@@ -29,15 +29,16 @@ import projeto.dominio.Pessoa;
 public class pessoaBean {
     
     
-    @Inject pessoaDAO dao;
+    @Inject PessoaDAO dao;
 
-//    pessoaDAO dao = new pessoaDAO();
+//    PessoaDAO dao = new PessoaDAO();
     
     private Pessoa pessoa = new Pessoa();
     private String nome;
     private String telefone;
     private String cpf;
     private String email;
+    private String senha;
     
     private List<Pessoa> pessoaList = new ArrayList<>();
     
@@ -70,6 +71,15 @@ public class pessoaBean {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+        pessoa.setSenha(senha);
     }
 
     public void setEmail(String email) {
