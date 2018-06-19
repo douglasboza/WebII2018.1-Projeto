@@ -57,7 +57,10 @@ public class PacienteDAO implements Serializable{
             TypedQuery<Paciente> query = entityManager.createQuery("SELECT e FROM Paciente e where id_pessoa = "+id_pessoa, Paciente.class);
             return query.getResultList();
 	}
-        
+        public List<Consulta> findConsultasPaciente(Long id_paciente) {
+            TypedQuery<Consulta> query = entityManager.createQuery("SELECT e FROM Consulta e where status=1 or id_pessoa = "+id_paciente, Consulta.class);
+            return query.getResultList();
+	}
 //        @Transactional
 //        public int removerPaciente(Long id_paciente) {
 //           int isSuccessful = entityManager.createQuery("delete from Paciente p where p.id_pessoa=:id_paciente")

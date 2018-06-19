@@ -20,14 +20,14 @@
                 <h1>Painel do mÃ©dico</h1>
                 
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
-                <h:link value="Cadastrar consultas" outcome="cadastrar-consulta"/> <br/>
-                <h:link value="Gerenciar consultas marcadas" outcome="novo-medico"/> <br/>
+                <h:link value="Gerenciar consultas" outcome="cadastrar-consulta"/> <br/>
                 
             </ui:fragment>
             
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
                 <h1>Painel do paciente</h1>
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
+                <h:link value="Solicitar consulta" outcome="solicitar-consulta"/> <br/>
                 
             </ui:fragment>
             

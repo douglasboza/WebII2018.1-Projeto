@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Solicitar consulta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <ui:fragment rendered="#{LoginBean.is_logged == true}">
+            <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
+                   <h:link value="Home" outcome="index"/>
+
+                   
+                    <h:form>
+                        <h:panelGrid columns="2" >               
+                            <h:outputLabel value="Id medico"/>
+                            <h:inputText value="#{ConsultaBean.id_medico}"/>
+                        </h:panelGrid>
+                        <h:commandButton value="Pesquisar" action="#{FacadeBean.pesquisarPorId()}"/>
+                    </h:form>
+
+                    <h:form>
+                        <p>Status</p>
+                        <p>1 = Disponível</p>
+                        <p>2 = Marcada</p>
+                        <p>3 = Cancelada</p>
+                        <p>4 = Pendente</p>
+
+                        <h:dataTable value="#{FacadeBean.mostraTabelaPaciente()}" var="emp" border="1">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="id_consulta" />
+                                </f:facet>
+                                <h:outputText value="#{emp.id_consulta}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"> 
+                                    <h:outputText value="id_medico" />
+                                </f:facet>
+                                <h:outputText value="#{emp.id_medico}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"> 
+                                    <h:outputText value="id_pessoa" />
+                                </f:facet>
+                                <h:outputText value="#{emp.id_pessoa}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"> 
+                                    <h:outputText value="Status" />
+                                </f:facet>
+                                <h:outputText value="#{emp.status}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"> 
+                                    <h:outputText value="Hora inicio" />
+                                </f:facet>
+                                <h:outputText value="#{emp.horaInicio}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"> 
+                                    <h:outputText value="Hora fim" />
+                                </f:facet>
+                                <h:outputText value="#{emp.horaFim}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"> 
+                                    <h:outputText value="Motivo cancelamento/observa��o" />
+                                </f:facet>
+                                <h:outputText value="#{emp.motivoCancelamento}" />
+                            </h:column>
+
+
+                            <h:column>
+                                <h:commandButton id="confirm" value="Confirmar consulta" action="#{FacadeBean.marcarConsulta(emp)}"></h:commandButton>
+                            </h:column>
+
+                            <h:column>
+                                <h:commandButton id="cancel" value="Cancelar consulta" action="#{FacadeBean.cancelarConsulta(emp)}"></h:commandButton>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>  
+                
+            </ui:fragment>
+        </ui:fragment>
+        
+      
+        
+    </body>
+</html>

@@ -71,15 +71,27 @@ public class FacadeBean implements Serializable{
         pacientebean.setPaciente(emp);
         pacientebean.setTeste_editar(1);
     }  
+    public List<Consulta> mostraTabelaPaciente(){
+        if(consultabean.getConsultaList().equals(null) || consultabean.getId_medico() == 0) {
+            Long id = Long.valueOf(loginbean.getId_pessoa());
+            consultabean.setConsultaList(pacientedao.findConsultasPaciente(id));
+            return consultabean.getConsultaList();
+        }else{           
+            return pesquisarPorId();
+        }
+    }
+    
    // fim paciente
     
    // consulta
     public void addConsulta(int teste_editar) {
-        
+        this.consultabean.setId_medico(loginbean.getId_pessoa());
         if(teste_editar == 1){
-            defaultdao.editarObj(consultabean.getConsulta());
+            defaultdao.editarObj(this.consultabean.getConsulta());
+            
         }else{
-          defaultdao.addNewObj(consultabean.getConsulta());
+            consultabean.setStatus(0);
+            defaultdao.addNewObj(consultabean.getConsulta());
         }
       
     }
@@ -112,13 +124,12 @@ public class FacadeBean implements Serializable{
         return consultadao.findConsultas(id);
     }
     
-    public List<Consulta> mostraTabela(){
+    public List<Consulta> mostraTabelaMedico(){
         if(consultabean.getConsultaList().equals(null) || consultabean.getId_medico() == 0) {
-             System.out.println("aqui1");
-             consultabean.setConsultaList(consultadao.findConsultas(null));
+            Long id = Long.valueOf(loginbean.getId_pessoa());
+            consultabean.setConsultaList(medicodao.findConsultasMedico(id));
             return consultabean.getConsultaList();
         }else{           
-             System.out.println("aqui2");
             return pesquisarPorId();
         }
     }
@@ -130,16 +141,20 @@ public class FacadeBean implements Serializable{
     
     
     public void marcarConsulta(Consulta consulta){
-        consulta.setStatus(2);
-        consulta.setId_pessoa(consultabean.getId_pessoa());
-
+        consulta.setStatus(4);
+        consulta.setId_pessoa(loginbean.getId_pessoa());
         defaultdao.editarObj(consulta);
 //        this.id_pessoa = ; // TODO id_pessoa do paciente que solicitou
     }
     
     public void cancelarConsulta(Consulta consulta){
-        consulta.setStatus(3);
+        consulta.setStatus(1);
         consulta.setId_pessoa(0);
+        defaultdao.editarObj(consulta);
+    }
+    
+    public void confirmarConsulta(Consulta consulta){
+        consulta.setStatus(2);
         defaultdao.editarObj(consulta);
     }
     

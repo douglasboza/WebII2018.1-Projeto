@@ -16,6 +16,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
+import projeto.dominio.Consulta;
 import projeto.dominio.Medico;
 import projeto.dominio.Paciente;
 import projeto.dominio.Pessoa;
@@ -59,6 +60,11 @@ public class MedicoDAO implements Serializable{
 	}
         public List<Medico> getMedico(Long id_pessoa) {
             TypedQuery<Medico> query = entityManager.createQuery("SELECT e FROM Medico e where id_pessoa = "+id_pessoa, Medico.class);
+            return query.getResultList();
+	}
+        
+        public List<Consulta> findConsultasMedico(Long id_medico) {
+            TypedQuery<Consulta> query = entityManager.createQuery("SELECT e FROM Consulta e where id_medico = "+id_medico, Consulta.class);
             return query.getResultList();
 	}
 //        

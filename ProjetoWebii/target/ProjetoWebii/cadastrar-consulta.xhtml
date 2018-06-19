@@ -18,12 +18,6 @@
         <h:form> 
             
             <h:panelGrid columns="2" >               
-                <h:outputLabel for="id_medico" value="Id medico"/>
-                <h:inputText id="id_medico" value="#{ConsultaBean.id_medico}"/>
-            </h:panelGrid>
-            
-            <br></br>
-            <h:panelGrid columns="2" >               
                 <p:outputLabel for="horaInicio" value="Hora inicio:" />
                 <p:calendar id="horaInicio" value="#{ConsultaBean.horaInicio}" pattern="MM/dd/yyyy HH:mm" />
             </h:panelGrid>
@@ -42,12 +36,12 @@
             
             <br></br>
             
-        
-            
             <h:inputHidden value="#{ConsultaBean.teste_editar}" id="hiddenteste" />
-            <h:inputHidden value="#{ConsultaBean.id_consulta}" id="hiddenId" />
+            <h:inputHidden value="#{ConsultaBean.id_consulta}" id="id_consulta" />
+            <h:inputHidden value="#{ConsultaBean.id_pessoa}" id="id_pessoa" />
+            <h:inputHidden value="#{ConsultaBean.status}" id="status" />
             
-            <h:commandButton value="Add Medico" action="#{FacadeBean.addConsulta(ConsultaBean.teste_editar)}"/>    
+            <h:commandButton value="Adicionar consulta" action="#{FacadeBean.addConsulta(ConsultaBean.teste_editar)}"/>    
             
            
             
@@ -55,12 +49,12 @@
 
         <h:form>
             <p>Status</p>
-            <p>1 = DisponÃƒÂ­vel</p>
+            <p>1 = Disponível</p>
             <p>2 = Marcada</p>
             <p>3 = Cancelada</p>
+            <p>4 = Pendente</p>
             
-            <h:dataTable value="#{FacadeBean.mostraTabela()}" var="emp" border="1">
-                <p>Lista com as consultas do mÃƒÂ©dico com id = 2</p>
+            <h:dataTable value="#{FacadeBean.mostraTabelaMedico()}" var="emp" border="1">
                 <h:column>
                     <f:facet name="header"> 
                         <h:outputText value="id_consulta" />
@@ -111,14 +105,24 @@
                 </h:column>
                 
                 <h:column>
-                    <h:commandButton id="submit" 
-                    value="Remover" 
-                    action="#{FacadeBean.excluirConsulta(emp.id_consulta)}"></h:commandButton>
+                    <h:commandButton id="excluir" 
+                        value="Remover" 
+                        action="#{FacadeBean.excluirConsulta(emp.id_consulta)}">
+                    </h:commandButton>
                 </h:column>
                            
                 <h:column>
                   <h:commandButton id="editar" value="Editar" action="#{FacadeBean.editarConsulta(emp)}"></h:commandButton>
                </h:column>
+                
+               
+                <h:column>
+                    <h:commandButton id="cancelar" value="Cancelar consulta" action="#{FacadeBean.cancelarConsulta(emp)}"></h:commandButton>
+                </h:column>
+                
+                <h:column>
+                    <h:commandButton id="confirmar" value="Confirmar consulta" action="#{FacadeBean.confirmarConsulta(emp)}"></h:commandButton>
+                </h:column>                
 
             </h:dataTable>
         </h:form>   

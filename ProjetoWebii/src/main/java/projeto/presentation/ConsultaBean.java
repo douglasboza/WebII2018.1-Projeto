@@ -41,7 +41,8 @@ public class ConsultaBean implements Serializable{
     private List<Consulta> consultaList = new ArrayList<>();
     
     public Consulta getConsulta() {
-        return consulta;
+        System.out.println("teste gettt id medico="+this.consulta.getId_medico());
+        return this.consulta;
     }
 
     public void setConsulta(Consulta con_editar) {
@@ -50,8 +51,11 @@ public class ConsultaBean implements Serializable{
         this.setHoraInicio(con_editar.getHoraInicio());
         this.setMotivoCancelamento(con_editar.getMotivoCancelamento());
         this.setId_medico(con_editar.getId_medico());
+        this.setStatus(con_editar.getStatus());
+        this.setId_pessoa(con_editar.getId_pessoa());
         this.consulta = con_editar;
-        System.out.println("teste id medico="+this.consulta.getId_medico());
+        System.out.println("teste 123 id medico="+this.consulta.getId_medico());
+
     }
 
     public Date getHoraFim() {
@@ -77,17 +81,21 @@ public class ConsultaBean implements Serializable{
     }
 
     public void setStatus(int status) {
+        if(status == 0){
+            status = 1;
+        }
+        this.consulta.setStatus(status);
         this.status = status;
     }
 
     public int getId_medico() {
-        return id_medico;
+        return this.id_medico;
     }
 
     public void setId_medico(int id_medico) {
-        System.out.println("esitou o id medico "+id_medico);
         this.consulta.setId_medico(id_medico);
         this.id_medico = id_medico;
+        System.out.println("alterou o id medico "+this.consulta.getId_medico());
     }
 
     public int getId_pessoa() {

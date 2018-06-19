@@ -75,8 +75,6 @@ public class MedicoBean implements Serializable{
         this.teste_editar = teste_editar;
     }
     
-    
-    
     public String getNome() {
         return nome;
     }
