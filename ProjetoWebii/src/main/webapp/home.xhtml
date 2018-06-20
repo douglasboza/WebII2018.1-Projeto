@@ -17,7 +17,7 @@
         <ui:fragment rendered="#{LoginBean.is_logged == true}">
             
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 1}">
-                <h1>Painel do mÃƒÂ©dico</h1>
+                <h1>Painel do medico</h1>
                 
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
                 <h:link value="Gerenciar consultas" outcome="cadastrar-consulta"/> <br/>
@@ -27,7 +27,7 @@
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
                 <h1>Painel do paciente</h1>
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
-                <h:link value="Confirmar consulta" outcome="confirmar-consulta"/> <br/>
+                <h:link value="Solicitar consulta" outcome="solicitar-consulta"/> <br/>
                 
             </ui:fragment>
             
