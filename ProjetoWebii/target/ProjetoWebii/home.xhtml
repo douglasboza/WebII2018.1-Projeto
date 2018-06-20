@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
     <head>
-        <title>TODO supply a title</title>
+        <title>Home medico</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     #{LoginBean.is_logged}
@@ -17,7 +17,7 @@
         <ui:fragment rendered="#{LoginBean.is_logged == true}">
             
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 1}">
-                <h1>Painel do mÃ©dico</h1>
+                <h1>Painel do mÃƒÂ©dico</h1>
                 
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
                 <h:link value="Gerenciar consultas" outcome="cadastrar-consulta"/> <br/>
@@ -27,7 +27,7 @@
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
                 <h1>Painel do paciente</h1>
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
-                <h:link value="Solicitar consulta" outcome="solicitar-consulta"/> <br/>
+                <h:link value="Confirmar consulta" outcome="confirmar-consulta"/> <br/>
                 
             </ui:fragment>
             

@@ -6,6 +6,7 @@
 package projeto.presentation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -43,7 +44,7 @@ public class FacadeBean implements Serializable{
     
     @Inject LoginBean loginbean;
     
-    private FacadeBean(){
+    public FacadeBean(){
         System.out.println("passou no facade");
     }
     
@@ -156,6 +157,13 @@ public class FacadeBean implements Serializable{
     public void confirmarConsulta(Consulta consulta){
         consulta.setStatus(2);
         defaultdao.editarObj(consulta);
+    }
+    
+    /**
+     * @return Lista de consultas cadastradas/pendentes (medico)
+     */
+    public ArrayList<Consulta> listarConsultas(){
+        return medicobean.getListaConsultas();
     }
     
    // fim consulta

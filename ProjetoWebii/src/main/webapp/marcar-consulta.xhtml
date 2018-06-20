@@ -31,7 +31,7 @@ and open the template in the editor.
                 </h:column>
                 <h:column>
                             <f:facet name="header"> 
-                                <h:outputText value="Id m�dico" />
+                                <h:outputText value="Id medico" />
                             </f:facet>
                             <h:outputText value="#{emp.id_pessoa}" />
                             
@@ -71,12 +71,12 @@ and open the template in the editor.
         </h:form>   
         <h:form>
             <p>Status</p>
-            <p>1 = Dispon�vel</p>
+            <p>1 = Disponivel</p>
             <p>2 = Marcada</p>
             <p>3 = Cancelada</p>
             
-            <h:dataTable value="#{FacadeBean.listarConsultas}" var="emp" border="1">
-                <p>Lista com as consultas do m�dico com id = 2</p>
+            <h:dataTable value="#{FacadeBean.listarConsultas()}" var="emp" border="1">
+                <p>Lista com as consultas do medico com id = 2</p>
                 <h:column>
                     <f:facet name="header"> 
                         <h:outputText value="id_consulta" />
@@ -121,7 +121,7 @@ and open the template in the editor.
                 
                 <h:column>
                     <f:facet name="header"> 
-                        <h:outputText value="Motivo cancelamento/Observa��o" />
+                        <h:outputText value="Motivo cancelamento/Observacao" />
                     </f:facet>
                     <h:outputText value="#{emp.motivoCancelamento}" />
                 </h:column>

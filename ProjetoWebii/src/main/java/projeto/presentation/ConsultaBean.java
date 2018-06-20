@@ -33,7 +33,7 @@ public class ConsultaBean implements Serializable{
     private Date horaFim;
     private Date horaInicio;
     private int status = 1;
-    private int id_medico; //= 19; médico com id 2 que está logado no sistema
+    private int id_medico; //= 19; medico com id 2 que esta logado no sistema
     private int id_pessoa;
     private String motivoCancelamento;
     private int teste_editar;

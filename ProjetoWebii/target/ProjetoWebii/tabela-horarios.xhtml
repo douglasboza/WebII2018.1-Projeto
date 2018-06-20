@@ -11,7 +11,7 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <head>
-        <title>Tabela de horarios</title>
+        <title>Tabela de horarios medico</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
@@ -27,7 +27,7 @@ and open the template in the editor.
         
         <h:form>
             <p>Status</p>
-            <p>1 = Disponível</p>
+            <p>1 = Disponivel</p>
             <p>2 = Marcada</p>
             <p>3 = Cancelada</p>
             <p>4 = Pendente</p>
@@ -37,8 +37,8 @@ and open the template in the editor.
                 <h:inputText value="#{ConsultaBean.id_pessoa}"/>
             </h:panelGrid>
             
-            <h:dataTable value="#{FacadeBean.mostraTabela()}" var="emp" border="1">
-                <p>Lista com as consultas do médico com id = 2</p>
+            <h:dataTable value="#{FacadeBean.mostraTabelaMedico()}" var="emp" border="1">
+                <p>Lista com as consultas do medico com id = 2</p>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="id_consulta" />
