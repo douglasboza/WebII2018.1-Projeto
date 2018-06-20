@@ -125,6 +125,13 @@ public class FacadeBean implements Serializable{
         return consultadao.findConsultas(id);
     }
     
+    public List<Consulta> pesquisarPorIdPessoa(){
+        Long id = Long.valueOf(consultabean.getId_pessoa());
+        consultabean.setConsultaList(consultadao.findConsultas(id));
+        
+        return consultadao.findConsultas(id);
+    }
+    
     public List<Consulta> mostraTabelaMedico(){
         if(consultabean.getConsultaList().equals(null) || consultabean.getId_medico() == 0) {
             Long id = Long.valueOf(loginbean.getId_pessoa());
