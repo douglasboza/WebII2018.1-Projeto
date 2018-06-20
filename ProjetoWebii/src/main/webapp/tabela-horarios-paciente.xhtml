@@ -34,7 +34,7 @@ and open the template in the editor.
                         <p>3 = Cancelada</p>
                         <p>4 = Pendente</p>
 
-                        <h:dataTable value="#{FacadeBean.mostraTabelaPaciente()}" var="emp" border="1">
+                        <h:dataTable value="#{FacadeBean.mostraTabelaPacientePendente()}" var="emp" border="1">
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="id_consulta" />
@@ -85,13 +85,7 @@ and open the template in the editor.
                             </h:column>
 
 
-                            <h:column>
-                                <h:commandButton id="confirm" value="Confirmar consulta" action="#{FacadeBean.marcarConsulta(emp)}"></h:commandButton>
-                            </h:column>
-
-                            <h:column>
-                                <h:commandButton id="cancel" value="Cancelar consulta" action="#{FacadeBean.cancelarConsulta(emp)}"></h:commandButton>
-                            </h:column>
+                            
 
                         </h:dataTable>
                     </h:form>  

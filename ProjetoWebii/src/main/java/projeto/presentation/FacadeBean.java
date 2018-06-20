@@ -82,6 +82,17 @@ public class FacadeBean implements Serializable{
         }
     }
     
+    public List<Consulta> mostraTabelaPacientePendente(){
+        List<Consulta> original = mostraTabelaPaciente();
+        List<Consulta> result = new ArrayList<Consulta>();
+        for(Consulta c: original){
+            if(c.getStatus() == 2 || c.getStatus() == 4)
+                result.add(c);
+        }
+        
+        return result;
+    }
+    
    // fim paciente
     
    // consulta
