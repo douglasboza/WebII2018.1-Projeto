@@ -26,11 +26,14 @@ and open the template in the editor.
         </h:form>
         
         <h:form>
-            <p>Status</p>
+<!--            <p>Status</p>
             <p>1 = Disponivel</p>
             <p>2 = Marcada</p>
             <p>3 = Recusada/Cancelada</p>
-            <p>4 = Pendente</p>
+            <p>4 = Pendente</p>-->
+
+            <br/>
+            <h2>Tabela de horarios cadastrados</h2>
              
             <h:panelGrid columns="2" >               
                 <h:outputLabel value="Id paciente"/>
@@ -64,7 +67,7 @@ and open the template in the editor.
                     <f:facet name="header"> 
                         <h:outputText value="Status" />
                     </f:facet>
-                    <h:outputText value="#{emp.status}" />
+                    <h:outputText value="#{FacadeBean.statusText(emp.status)}" />
                 </h:column>
                 
                 <h:column>

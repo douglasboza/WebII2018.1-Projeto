@@ -242,4 +242,25 @@ public class FacadeBean implements Serializable{
     
     // fim médico
     
+    public String statusText(int code) {
+        String text = "Erro";
+        switch(code){
+            case 1:
+                text = "Disponivel";
+                break;
+            case 2:
+                text = "Marcada";
+                break;
+            case 3:
+                text = "Recusada/Cancelada";
+                break;
+            case 4:
+                text = "Pendente";
+            default:
+                break;
+        }
+                    
+        return text;
+    }
+    
 }

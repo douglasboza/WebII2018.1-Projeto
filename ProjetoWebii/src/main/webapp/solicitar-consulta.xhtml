@@ -29,11 +29,14 @@ and open the template in the editor.
                     </h:form>
 
                     <h:form>
-                        <p>Status</p>
+<!--                        <p>Status</p>
                         <p>1 = Disponivel</p>
                         <p>2 = Marcada</p>
                         <p>3 = Recusada/Cancelada</p>
-                        <p>4 = Pendente</p>
+                        <p>4 = Pendente</p>-->
+
+                        <br/>
+                        <h2>Consultas disponiveis</h2>
 
                         <h:dataTable value="#{FacadeBean.mostraTabelaPaciente()}" var="emp" border="1">
                             <h:column>
@@ -61,7 +64,7 @@ and open the template in the editor.
                                 <f:facet name="header"> 
                                     <h:outputText value="Status" />
                                 </f:facet>
-                                <h:outputText value="#{emp.status}" />
+                                <h:outputText value="#{FacadeBean.statusText(emp.status)}" />
                             </h:column>
 
                             <h:column>
@@ -87,11 +90,11 @@ and open the template in the editor.
 
 
                             <h:column>
-                                <h:commandButton id="confirm" value="Confirmar consulta" action="#{FacadeBean.marcarConsulta(emp)}"></h:commandButton>
+                                <h:commandButton id="confirm" value="Solicitar consulta" action="#{FacadeBean.marcarConsulta(emp)}"></h:commandButton>
                             </h:column>
 
                             <h:column>
-                                <h:commandButton id="cancel" value="Cancelar consulta" action="#{FacadeBean.cancelarConsulta(emp)}"></h:commandButton>
+                                <h:commandButton id="cancel" value="Cancelar requisicao" action="#{FacadeBean.cancelarConsulta(emp)}"></h:commandButton>
                             </h:column>
 
                         </h:dataTable>
