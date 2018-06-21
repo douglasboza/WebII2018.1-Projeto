@@ -51,7 +51,7 @@
             <p>Status</p>
             <p>1 = Disponivel</p>
             <p>2 = Marcada</p>
-            <p>3 = Cancelada</p>
+            <p>3 = Recusada/Cancelada</p>
             <p>4 = Pendente</p>
             
             <h:dataTable value="#{FacadeBean.mostraTabelaMedico()}" var="emp" border="1">
@@ -111,9 +111,9 @@
                     </h:commandButton>
                 </h:column>
                            
-                <h:column>
+<!--                <h:column>
                   <h:commandButton id="editar" value="Editar" action="#{FacadeBean.editarConsulta(emp)}"></h:commandButton>
-               </h:column>
+               </h:column>-->
                 
                
                 <h:column>
@@ -122,6 +122,10 @@
                 
                 <h:column>
                     <h:commandButton id="confirmar" value="Confirmar consulta" action="#{FacadeBean.confirmarConsulta(emp)}"></h:commandButton>
+                </h:column>                
+                
+                <h:column>
+                    <h:commandButton id="recusar" value="Recusar consulta" action="#{FacadeBean.recusarConsulta(emp)}"></h:commandButton>
                 </h:column>                
 
             </h:dataTable>

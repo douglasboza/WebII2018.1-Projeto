@@ -61,7 +61,6 @@ public class LoginBean implements Serializable{
     public void setId_pessoa(int id_pessoa) {
         this.id_pessoa = id_pessoa;
     }
-    
 
     
 //
@@ -99,8 +98,5 @@ public class LoginBean implements Serializable{
 //    public void logPaciente(){
 //        
 //    }
-
-
-
   
 }

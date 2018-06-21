@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
     <head>
-        <title>Home medico</title>
+        <title>Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     #{LoginBean.is_logged}
@@ -28,6 +28,7 @@
                 <h1>Painel do paciente</h1>
                 <h:link value="Editar conta" outcome="editar-conta"/> <br/>
                 <h:link value="Solicitar consulta" outcome="solicitar-consulta"/> <br/>
+                <h:link value="Minhas consultas" outcome="tabela-horarios-paciente"/> <br/>
                 
             </ui:fragment>
             

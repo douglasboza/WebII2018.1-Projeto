@@ -10,13 +10,14 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Confirmar consulta</title>
+        <title>Solicitar consulta</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <body>
         <ui:fragment rendered="#{LoginBean.is_logged == true}">
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
-                   <h:link value="Home" outcome="index"/>
+                   <h:link value="Index" outcome="index"/> <br/>
+                   <h:link value="Home" outcome="home"/> <br/>
 
                    
                     <h:form>
@@ -31,7 +32,7 @@ and open the template in the editor.
                         <p>Status</p>
                         <p>1 = Disponivel</p>
                         <p>2 = Marcada</p>
-                        <p>3 = Cancelada</p>
+                        <p>3 = Recusada/Cancelada</p>
                         <p>4 = Pendente</p>
 
                         <h:dataTable value="#{FacadeBean.mostraTabelaPaciente()}" var="emp" border="1">

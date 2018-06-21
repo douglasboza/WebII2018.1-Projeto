@@ -72,6 +72,7 @@ public class FacadeBean implements Serializable{
         pacientebean.setPaciente(emp);
         pacientebean.setTeste_editar(1);
     }  
+    
     public List<Consulta> mostraTabelaPaciente(){
         if(consultabean.getConsultaList().equals(null) || consultabean.getId_medico() == 0) {
             Long id = Long.valueOf(loginbean.getId_pessoa());
@@ -82,16 +83,39 @@ public class FacadeBean implements Serializable{
         }
     }
     
+    /**
+     * Filtra tabela do paciente
+     * @return Lista de consultas pendentes/confirmadas
+     */
     public List<Consulta> mostraTabelaPacientePendente(){
         List<Consulta> original = mostraTabelaPaciente();
         List<Consulta> result = new ArrayList<Consulta>();
         for(Consulta c: original){
-            if(c.getStatus() == 2 || c.getStatus() == 4)
+            if(c.getStatus() == 2 || c.getStatus() == 3 || c.getStatus() == 4)
                 result.add(c);
         }
         
         return result;
     }
+    
+    // TODO
+    /**
+     * Pesquisa na tabela pelo nome do medico
+     * @return Lista com consultas do medico
+     */
+//    public List<Consulta> mostraTabelaNomeMedico(String nomeMedico){
+//        List<Consulta> original = mostraTabelaPaciente();
+//        List<Consulta> result = new ArrayList<Consulta>();
+//        // Procurar no DAO pelo nome com idMedico
+//        // medico.getListaConsultas; 
+//        
+//        for(Consulta c: original){
+//            if()
+//                result.add(c);
+//        }
+//        
+//        return result;
+//    }
     
    // fim paciente
     
@@ -177,6 +201,11 @@ public class FacadeBean implements Serializable{
         defaultdao.editarObj(consulta);
     }
     
+    public void recusarConsulta(Consulta consulta){
+        consulta.setStatus(3);
+        defaultdao.editarObj(consulta);
+    }
+    
     /**
      * @return Lista de consultas cadastradas/pendentes (medico)
      */
@@ -212,6 +241,5 @@ public class FacadeBean implements Serializable{
     }
     
     // fim médico
-    
     
 }

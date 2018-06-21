@@ -15,6 +15,7 @@ and open the template in the editor.
     </h:head>
     <body>
         <h:link value="Index" outcome="index"/> <br/>
+        <h:link value="Home" outcome="home"/> <br/>
         
         <ui:fragment rendered="#{LoginBean.is_logged == true}">
             <ui:fragment rendered="#{LoginBean.tipo_pessoa == 2}">
@@ -31,7 +32,7 @@ and open the template in the editor.
                         <p>Status</p>
                         <p>1 = Disponivel</p>
                         <p>2 = Marcada</p>
-                        <p>3 = Cancelada</p>
+                        <p>3 = Recusada/Cancelada</p>
                         <p>4 = Pendente</p>
 
                         <h:dataTable value="#{FacadeBean.mostraTabelaPacientePendente()}" var="emp" border="1">
