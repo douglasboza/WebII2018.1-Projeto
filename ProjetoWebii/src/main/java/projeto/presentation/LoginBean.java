@@ -24,8 +24,8 @@ import projeto.dominio.Paciente;
 @RequestScoped
 public class LoginBean implements Serializable{
       boolean is_logged = true;
-      int id_pessoa = 28;
-      int tipo_pessoa = 2; // 1=médico e 2=pessoa  
+      int id_pessoa = 35;
+      int tipo_pessoa = 1; // 1=médico e 2=pessoa  
 //    @Inject MedicoDAO medicodao;
 //     @Inject MedicoBean medicodao;
 //    @Inject DefaultDAO defaultdao;
